@@ -33,6 +33,10 @@ body {
     min-height: 100%;
 }
 
+p.copyright {
+    font-size: 12px;
+    font-weight: 300;
+}
 
 
 /**
@@ -116,7 +120,7 @@ a {
 
     &:hover,
     &:visited:hover {
-        color: mediumslateblue;
+        color: $lilac;
         text-decoration: none;
 
         span.post-meta {
