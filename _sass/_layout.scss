@@ -2,9 +2,12 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
+    min-height: 60px;
+    text-transform: lowercase;
+    background-color: $black;
+    color: $white;
+    font-weight: 900;
+    letter-spacing: 0px;
 
     // Positioning context for the mobile navigation icon
     position: relative;
@@ -12,15 +15,13 @@
 
 .site-title {
     font-size: 26px;
-    font-weight: 300;
     line-height: 56px;
-    letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
 
-    &,
-    &:visited {
-        color: $grey-color-dark;
+    &:visited
+    {
+        color: $white;
     }
 }
 
@@ -98,8 +99,9 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    background-color: $black;
     padding: $spacing-unit 0;
+    color: $white;
 }
 
 .footer-heading {
@@ -169,6 +171,7 @@
  */
 .page-content {
     padding: $spacing-unit 0;
+    min-height: calc(100% - 120px);
 }
 
 .page-heading {
@@ -176,27 +179,18 @@
 }
 
 .post-list {
-    margin-left: 0;
-    list-style: none;
-
-    > li {
-        margin-bottom: $spacing-unit;
-    }
+    padding: 30px 0;
 }
 
+// main container for post-links
 .post-meta {
     font-size: $small-font-size;
-    color: $grey-color;
-}
-
-.post-link {
-    display: block;
-    font-size: 24px;
+    color: $black;
+    font-weight: 900;
 }
 
 
-
-/**
+/**a
  * Posts
  */
 .post-header {
@@ -207,6 +201,7 @@
     font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
+    font-weight: 900;
 
     @include media-query($on-laptop) {
         font-size: 36px;
