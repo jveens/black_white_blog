@@ -8,6 +8,8 @@ tags: html, css
 
 *This article originally posted on [Medium](https://medium.com/@jennyveens/how-to-peekaboo-nav-bar-6f795c17b3b7#.b5rn6lkk3)*
 
+View Demo here: [Peekaboo Nav Bar (Codepen)](http://codepen.io/jennyveens/pen/GgEdpy).
+
 This week at HackerYou we tackled HTML5 and CSS3.
 As our first project, we were tasked with coding a one-page website from scratch. Having already completed a similar task before the course started, I wanted to incorporate some effects I’ve never used before. As soon as I saw THIS nav bar, I knew I wanted to make it my own.
 
@@ -45,10 +47,17 @@ nav ul li {
 
 Here’s a look at the nav before I edit down the padding on the Company name h2:
 
-![My helpful screenshot]({{ site.url }}/assets/2015/01/peek-a-boo-nav/nav-bar-1.png)
+<figure>
+	<img src="{{ site.url }}/assets/2015/01/peek-a-boo-nav/nav-bar-1.png" alt="The navbar with minimal styling">
+	<figcaption>Here we can clearly see that our ‘nav bar’ is really made up of 2 separate elements.</figcaption>
+</figure>
 
-Here we can clearly see that our ‘nav bar’ is really made up of 2 separate elements.
 The then edited the padding on the .companyName, and jacked up the padding on the left side to make it look like margin: 0 auto was centering it on the page. Now it looks more like this:
+
+<figure>
+	<img src="{{ site.url }}/assets/2015/01/peek-a-boo-nav/nav-bar-2.png" alt="Navbar with centered left side, uneven right side.">
+	<figcaption>Things are looking better - but it's a bit lopsided.</figcaption>
+</figure>
 
 Things are looking better — using padding to push in the h2 gives the appearance of centering on the page.
 I wanted to push in the right side a bit as well, no one likes a lop-sided webpage!
@@ -61,8 +70,20 @@ header nav ul li {
 
 Finished nav bar with a ‘margin: 0 auto’ appearance.
 
+<figure>
+	<img src="{{ site.url }}/assets/2015/01/peek-a-boo-nav/nav-bar-3.png" alt="The finished navbar!">
+	<figcaption>The finished navbar!</figcaption>
+</figure>
+
+<figure>
+	<img src="{{ site.url }}/assets/2015/01/peek-a-boo-nav/nav-bar-4.png" alt="Finished navbar with a demo hover.">
+	<figcaption>Finished navbar with a transparent hovered link.</figcaption>
+</figure>
+
 Finished nav bar with a hovered link.
-Ta-da! All done. Check out the full code here: [Peekaboo Nav Bar (Codepen)](http://codepen.io/jennyveens/pen/GgEdpy).
+Ta-da! All done. 
+
+Check out the full code here: [Peekaboo Nav Bar (Codepen)](http://codepen.io/jennyveens/pen/GgEdpy).
 
 If you have any questions, get at me on twitter [@jennyveens](https://twitter.com/jennyveens).
 

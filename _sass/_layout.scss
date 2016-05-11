@@ -197,6 +197,17 @@
 .post-content {
     margin-bottom: $spacing-unit;
 
+    a {
+        color: $accent;
+        font-weight: bold;
+        padding: 0 3px;
+
+        &:hover {
+            background-color: $black;
+            color: $white;
+        }
+    }
+
     h2 {
         font-size: 32px;
 
@@ -219,5 +230,25 @@
         @include media-query($on-laptop) {
             font-size: 18px;
         }
+    }
+}
+
+figure {
+    text-align: center;
+    
+    pre {
+        text-align: left;
+    }
+    
+    img {
+        margin: 0 auto;
+    }
+
+    figcaption {
+        // font-style: italic;
+        color: #666;
+        font-size: 14px;
+        margin-top: 5px;
+        font-weight: 100;
     }
 }

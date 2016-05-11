@@ -11,13 +11,24 @@
         margin-top: 20px;
     }
 
+    span.post-meta {
+        color: $black;
+        text-transform: uppercase;
+    }
+
     &:hover {
         // box-shadow: -8px -8px 0 $white, -11px -5px 0 $black, -5px -11px 0 $black, -11px -11px 0 $black;
         background-color: $black;
         box-shadow: -8px -8px 0 $accent;
+
+
         h2 {
             color: $white;
             text-decoration: none;
+        }
+        
+        span.post-meta {
+            color: $white;
         }
     }
 }
