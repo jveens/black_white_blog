@@ -1,8 +1,0 @@
----
-layout: post
-title: Blogging Like a Really Hackey Hacker
-date:   2016-04-20 22:00:00 -0400
-category: Article
----
-
-This is a test post!
