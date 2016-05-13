@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>How To: Peekaboo Nav Bar | Jenny Veens</title>
+  <meta name="description" content="This article originally posted on Medium">
+
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/tutorial/2015/01/25/peek-a-boo-nav.html">
+  <link rel="alternate" type="application/rss+xml" title="Jenny Veens" href="http://localhost:4000/feed.xml">
+
+  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <script src="/assets/javascripts/bootstrap.min.js"></script>
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="container">
+
+  <nav class="navbar-default">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="site-title" href="/">Jenny Veens</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          
+            
+            <li><a class="page-link" href="/about/">About</a></li>
+            
+          
+            
+          
+            
+          
+            
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+  </nav>
+
+  <!--   <a class="site-title" href="/">Jenny Veens</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav> -->
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="container">
+        <!--  -->
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">How To: Peekaboo Nav Bar</h1>
+    <p class="post-meta"><time datetime="2015-01-25T20:35:50-05:00" itemprop="datePublished">Posted on: January 25, 2015</time></p>
+    
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><em>This article originally posted on <a href="https://medium.com/@jennyveens/how-to-peekaboo-nav-bar-6f795c17b3b7#.b5rn6lkk3">Medium</a></em></p>
+
+<p>View Demo here: <a href="http://codepen.io/jennyveens/pen/GgEdpy">Peekaboo Nav Bar (Codepen)</a>.</p>
+
+<p>This week at HackerYou we tackled HTML5 and CSS3.
+As our first project, we were tasked with coding a one-page website from scratch. Having already completed a similar task before the course started, I wanted to incorporate some effects I’ve never used before. As soon as I saw THIS nav bar, I knew I wanted to make it my own.</p>
+
+<p>Upon inspecting the nav bar element, I was found that they used a little trick here: They made a slice of the top of the image in fit into the nav bar that seamlessly blended with the header image. This image could then be applied as a nav bar background to be revealed when a nav link was hovered.
+Not wanting to deal with precisely creating a slice of my header image (too much math!), I was determined to find another way. My first thought was this:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">nav</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.7</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nt">nav</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>I quickly realized this wouldn’t work, as the background on a:hover would simply reveal the transparent black background on the nav.</p>
+
+<p>In order to make this happen, I had to ensure that there were no backgrounds between the image I wanted to reveal and the nav elements that would show through on hover.
+I started by splitting the nav into 2 sections: one for the Company name, and another for the actual nav bar. By floating these 2 elements side by side, I would give the illusion of a full-bleed nav. The nav li were then divided into 4 equal sections.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">nav</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">55%</span><span class="p">;</span>
+  <span class="nl">float</span><span class="p">:</span><span class="nb">right</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.companyName</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span><span class="m">45%</span><span class="p">;</span>
+  <span class="nl">float</span><span class="p">:</span><span class="nb">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">nav</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">25%</span><span class="p">;</span>
+  <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Here’s a look at the nav before I edit down the padding on the Company name h2:</p>
+
+<figure>
+	<img src="http://localhost:4000/assets/2015/01/peek-a-boo-nav/nav-bar-1.png" alt="The navbar with minimal styling" />
+	<figcaption>Here we can clearly see that our ‘nav bar’ is really made up of 2 separate elements.</figcaption>
+</figure>
+
+<p>The then edited the padding on the .companyName, and jacked up the padding on the left side to make it look like margin: 0 auto was centering it on the page. Now it looks more like this:</p>
+
+<figure>
+	<img src="http://localhost:4000/assets/2015/01/peek-a-boo-nav/nav-bar-2.png" alt="Navbar with centered left side, uneven right side." />
+	<figcaption>Things are looking better - but it's a bit lopsided.</figcaption>
+</figure>
+
+<p>Things are looking better — using padding to push in the h2 gives the appearance of centering on the page.
+I wanted to push in the right side a bit as well, no one likes a lop-sided webpage!</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">header</span> <span class="nt">nav</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="nl">border-right</span><span class="p">:</span> <span class="m">100px</span> <span class="nb">solid</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.7</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Finished nav bar with a ‘margin: 0 auto’ appearance.</p>
+
+<figure>
+	<img src="http://localhost:4000/assets/2015/01/peek-a-boo-nav/nav-bar-3.png" alt="The finished navbar!" />
+	<figcaption>The finished navbar!</figcaption>
+</figure>
+
+<figure>
+	<img src="http://localhost:4000/assets/2015/01/peek-a-boo-nav/nav-bar-4.png" alt="Finished navbar with a demo hover." />
+	<figcaption>Finished navbar with a transparent hovered link.</figcaption>
+</figure>
+
+<p>Finished nav bar with a hovered link.
+Ta-da! All done.</p>
+
+<p>Check out the full code here: <a href="http://codepen.io/jennyveens/pen/GgEdpy">Peekaboo Nav Bar (Codepen)</a>.</p>
+
+<p>If you have any questions, get at me on twitter <a href="https://twitter.com/jennyveens">@jennyveens</a>.</p>
+
+<p>Have a better way of achieving this effect? I’d love to see it! Please share it in the comments ☺</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer text-center">
+
+	<div class="container">
+
+		<div class="col-xs-12">
+
+		<!-- <h2 class="footer-heading">Jenny Veens</h2> -->
+				<ul class="social-media-list ">
+					
+					<li>
+						<a target="_blank" href="mailto:jennyveens@gmail.com">email</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://github.com/jveens">github</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://twitter.com/jennyveens/">twitter</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://codepen.io/jveens/">codepen</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="https://ca.linkedin.com/in/jennyveens">linkedin</a>
+					</li>
+					
+				</ul>
+
+				<p class="copyright">Copyright &copy; 2014 - 2016 Jenny Veens. All Rights Reserved.</p>
+
+				</div>
+
+
+
+	</div>
+</footer>
+
+
+  </body>
+
+</html>

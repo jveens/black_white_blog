@@ -15,8 +15,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://localhost:4000"
 twitter_username: jennyveens
 github_username:  jveens
-codepen_username: jveens
-linkedin_username: jennyveens
+codepen_username: jennyveens
+linkedin_url: https://ca.linkedin.com/in/jennyveens
+email_address: jennyveens@gmail.com
 
 # Build settings
 markdown: kramdown

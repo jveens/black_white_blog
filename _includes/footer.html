@@ -8,31 +8,31 @@
 				<ul class="social-media-list ">
 					{% if site.email %}
 					<li>
-						<a href="#">email</a>
+						<a target="_blank" href="mailto:{{ site.email_address }}">email</a>
 					</li>
 					{% endif %}
 
 					{% if site.github_username %}
 					<li>
-						<a href="#">github</a>
+						<a target="_blank" href="http://github.com/{{ site.github_username }}">github</a>
 					</li>
 					{% endif %}
 
 					{% if site.twitter_username %}
 					<li>
-						<a href="#">twitter</a>
+						<a target="_blank" href="http://twitter.com/{{ site.twitter_username }}/">twitter</a>
 					</li>
 					{% endif %}
 
 					{% if site.codepen_username %}
 					<li>
-						<a href="#">codepen</a>
+						<a target="_blank" href="http://codepen.io/{{ site.codepen_username}}/">codepen</a>
 					</li>
 					{% endif %}
 
-					{% if site.linkedin_username %}
+					{% if site.linkedin_url %}
 					<li>
-						<a href="#">linkedin</a>
+						<a target="_blank" href="{{ site.linkedin_url }}">linkedin</a>
 					</li>
 					{% endif %}
 				</ul>
