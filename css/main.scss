@@ -10,6 +10,13 @@ $accent: #a994ff;
 $container-large-desktop: 920px;
 $grid-gutter-width: 60px;
 
+$navbar-default-bg: $black;
+$navbar-default-link-color: $white;
+$navbar-default-link-hover-color: $accent;
+$navbar-default-link-active-color: $accent;
+$navbar-default-link-active-bg: $white;
+$navbar-padding-vertical: 19px;
+
 @import "bootstrap";
 
 // font-famil: 'Noto Sans', sans-serif;

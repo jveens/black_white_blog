@@ -97,6 +97,11 @@
     }
 }
 
+.navbar-toggle {
+    margin-right: 0;
+    margin-top: 12px;
+}
+
 
 
 /**
@@ -157,7 +162,7 @@
  */
 .page-content {
     padding: $spacing-unit 0;
-    min-height: calc(100% - 120px);
+    min-height: calc(100vh - 230px);
 }
 
 .page-heading {
