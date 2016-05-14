@@ -1,5 +1,15 @@
-.post-container {
 
+.post-list {
+    .post:last-child,
+    .post:nth-last-of-type(-n+2):not(:nth-child(even)) {
+
+        .post-container {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.post-container {
     min-height: 200px;
     height: 200px;
     box-shadow: -8px -8px 0 $black;
@@ -31,6 +41,7 @@
             color: $white;
         }
     }
+
 }
 
 .post-link {
