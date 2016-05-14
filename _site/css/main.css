@@ -5897,6 +5897,8 @@ a {
   text-decoration: none; }
   a:visited {
     color: #ffffff; }
+  a:focus {
+    color: #ffffff; }
   a:hover, a:visited:hover {
     color: #a994ff;
     text-decoration: none; }
@@ -5984,6 +5986,88 @@ pre {
   vertical-align: middle; }
 
 /**
+ * Page content
+ */
+.page-content {
+  padding: 30px 0;
+  min-height: calc(100vh - 230px); }
+  .page-content a:focus {
+    outline: 0;
+    background-color: black;
+    color: white; }
+
+.page-heading {
+  font-size: 20px; }
+
+.post-list {
+  padding: 30px 0; }
+
+.post-meta {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 900; }
+
+/**a
+ * Posts
+ */
+.post-header {
+  margin-bottom: 30px; }
+
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+  font-weight: 900; }
+  @media screen and (max-width: 800px) {
+    .post-title {
+      font-size: 36px; } }
+
+.post-content {
+  margin-bottom: 30px; }
+  .post-content a {
+    color: #a994ff;
+    font-weight: bold;
+    padding: 0 3px; }
+    .post-content a:hover {
+      background-color: #000000;
+      color: #ffffff; }
+  .post-content h2 {
+    font-size: 32px; }
+    @media screen and (max-width: 800px) {
+      .post-content h2 {
+        font-size: 28px; } }
+  .post-content h3 {
+    font-size: 26px; }
+    @media screen and (max-width: 800px) {
+      .post-content h3 {
+        font-size: 22px; } }
+  .post-content h4 {
+    font-size: 20px; }
+    @media screen and (max-width: 800px) {
+      .post-content h4 {
+        font-size: 18px; } }
+
+figure {
+  text-align: center; }
+  figure pre {
+    text-align: left; }
+  figure img {
+    margin: 0 auto; }
+  figure figcaption {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: 100; }
+
+canvas {
+  margin-bottom: 15px; }
+
+.site-header a:focus,
+.site-footer a:focus {
+  outline: 0;
+  text-decoration: underline; }
+
+/**
  * Site header
  */
 .site-header {
@@ -6002,6 +6086,9 @@ pre {
   float: left; }
   .site-title:visited {
     color: #ffffff; }
+
+.navbar-default .navbar-nav > li > a.active {
+  color: #a994ff; }
 
 .site-nav {
   float: right;
@@ -6077,89 +6164,9 @@ pre {
     display: inline-block;
     margin: 5px 10px; }
 
-@media screen and (max-width: 800px) {
-  .footer-col-1,
-  .footer-col-2 {
-    width: -webkit-calc(50% - (30px / 2));
-    width: calc(50% - (30px / 2)); }
-
-  .footer-col-3 {
-    width: -webkit-calc(100% - (30px / 2));
-    width: calc(100% - (30px / 2)); } }
-@media screen and (max-width: 600px) {
-  .footer-col {
-    float: none;
-    width: -webkit-calc(100% - (30px / 2));
-    width: calc(100% - (30px / 2)); } }
-/**
- * Page content
- */
-.page-content {
-  padding: 30px 0;
-  min-height: calc(100vh - 230px); }
-
-.page-heading {
-  font-size: 20px; }
-
-.post-list {
-  padding: 30px 0; }
-
-.post-meta {
-  font-size: 14px;
-  color: #000000;
-  font-weight: 900; }
-
-/**a
- * Posts
- */
-.post-header {
-  margin-bottom: 30px; }
-
-.post-title {
-  font-size: 42px;
-  letter-spacing: -1px;
-  line-height: 1;
-  font-weight: 900; }
-  @media screen and (max-width: 800px) {
-    .post-title {
-      font-size: 36px; } }
-
-.post-content {
-  margin-bottom: 30px; }
-  .post-content a {
-    color: #a994ff;
-    font-weight: bold;
-    padding: 0 3px; }
-    .post-content a:hover {
-      background-color: #000000;
-      color: #ffffff; }
-  .post-content h2 {
-    font-size: 32px; }
-    @media screen and (max-width: 800px) {
-      .post-content h2 {
-        font-size: 28px; } }
-  .post-content h3 {
-    font-size: 26px; }
-    @media screen and (max-width: 800px) {
-      .post-content h3 {
-        font-size: 22px; } }
-  .post-content h4 {
-    font-size: 20px; }
-    @media screen and (max-width: 800px) {
-      .post-content h4 {
-        font-size: 18px; } }
-
-figure {
-  text-align: center; }
-  figure pre {
-    text-align: left; }
-  figure img {
-    margin: 0 auto; }
-  figure figcaption {
-    color: #666;
-    font-size: 14px;
-    margin-top: 5px;
-    font-weight: 100; }
+.post-list .post:last-child .post-container,
+.post-list .post:nth-last-of-type(-n+2):not(:nth-child(even)) .post-container {
+  margin-bottom: 0; }
 
 .post-container {
   min-height: 200px;
