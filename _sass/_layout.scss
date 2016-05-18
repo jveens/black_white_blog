@@ -46,6 +46,7 @@
  */
 .post-header {
     margin-bottom: $spacing-unit;
+    text-align: center;
 }
 
 .post-title {
@@ -61,16 +62,23 @@
 
 .post-content {
     margin-bottom: $spacing-unit;
+    width: 100%;
+    min-width: 320px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
 
     a {
         color: $accent;
         font-weight: bold;
-        padding: 0 3px;
+        padding: 0 0px;
 
         &:hover {
             background-color: $black;
             color: $white;
         }
+
+
     }
 
     h2 {
@@ -83,6 +91,7 @@
 
     h3 {
         font-size: 26px;
+        margin-top: 50px;
 
         @include media-query($on-laptop) {
             font-size: 22px;
@@ -96,10 +105,16 @@
             font-size: 18px;
         }
     }
+
+    .download-link {
+        margin-bottom: 40px;
+    }
 }
 
 figure {
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
     
     pre {
         text-align: left;
@@ -119,5 +134,5 @@ figure {
 }
 
 canvas {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
 }

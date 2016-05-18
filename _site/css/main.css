@@ -5878,6 +5878,9 @@ li > ul,
 li > ol {
   margin-bottom: 0; }
 
+ul {
+  list-style-type: none; }
+
 /**
  * Headings
  */
@@ -5924,9 +5927,9 @@ blockquote {
 pre,
 code {
   font-size: 15px;
-  border: 1px solid #e8e8e8;
-  border-radius: 3px;
-  background-color: #eef; }
+  border: 0px solid #e8e8e8;
+  border-radius: 0;
+  background-color: #eee; }
 
 code {
   padding: 1px 5px; }
@@ -6011,7 +6014,8 @@ pre {
  * Posts
  */
 .post-header {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  text-align: center; }
 
 .post-title {
   font-size: 42px;
@@ -6023,11 +6027,16 @@ pre {
       font-size: 36px; } }
 
 .post-content {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto; }
   .post-content a {
     color: #a994ff;
     font-weight: bold;
-    padding: 0 3px; }
+    padding: 0 0px; }
     .post-content a:hover {
       background-color: #000000;
       color: #ffffff; }
@@ -6037,7 +6046,8 @@ pre {
       .post-content h2 {
         font-size: 28px; } }
   .post-content h3 {
-    font-size: 26px; }
+    font-size: 26px;
+    margin-top: 50px; }
     @media screen and (max-width: 800px) {
       .post-content h3 {
         font-size: 22px; } }
@@ -6046,9 +6056,13 @@ pre {
     @media screen and (max-width: 800px) {
       .post-content h4 {
         font-size: 18px; } }
+  .post-content .download-link {
+    margin-bottom: 40px; }
 
 figure {
-  text-align: center; }
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px; }
   figure pre {
     text-align: left; }
   figure img {
@@ -6058,9 +6072,6 @@ figure {
     font-size: 14px;
     margin-top: 5px;
     font-weight: 100; }
-
-canvas {
-  margin-bottom: 15px; }
 
 .site-header a:focus,
 .site-footer a:focus {
@@ -6204,7 +6215,7 @@ canvas {
 .highlight {
   background: #fff; }
   .highlighter-rouge .highlight {
-    background: #eef; }
+    background: #eee; }
   .highlight .c {
     color: #998;
     font-style: italic; }

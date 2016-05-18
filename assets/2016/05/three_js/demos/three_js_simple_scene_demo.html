@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Three.js DEMO</title>
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="demo"></canvas>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"></script>
+	<script>
+
+		
+		var camera, scene, ratio, renderer, width;
+		var geometry, material, mesh;
+
+		var init = function () {
+
+			var my_canvas = document.getElementById('demo');
+
+			width = window.innerWidth;
+
+			renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
+			renderer.setSize( width, window.innerHeight );
+			renderer.setClearColor( 0x7FFFD4 );
+
+			camera = new THREE.PerspectiveCamera( 75, width / window.innerHeight, 1, 2000 );
+			camera.position.z = 800;
+
+			scene = new THREE.Scene();
+
+			geometry = new THREE.SphereGeometry( 300, 15, 10 );
+			material = new THREE.MeshBasicMaterial( { color: 0xDDA0DD, wireframe: true, wireframeLinewidth: 2 } );
+
+			mesh = new THREE.Mesh( geometry, material );
+			
+			scene.add( mesh );
+		}
+
+		var animate = function () {
+
+			requestAnimationFrame( animate );
+
+			mesh.rotation.x = Date.now() * 0.0002;
+			mesh.rotation.y = Date.now() * 0.001;
+
+			renderer.render( scene, camera );
+
+		}
+
+		init();
+		animate();
+
+		function debounce(func, wait, immediate) {
+			var timeout;
+			return function() {
+				var context = this, args = arguments;
+				var later = function() {
+					timeout = null;
+					if (!immediate) func.apply(context, args);
+				};
+				var callNow = immediate && !timeout;
+				clearTimeout(timeout);
+				timeout = setTimeout(later, wait);
+				if (callNow) func.apply(context, args);
+			};
+		};
+
+		var canvasSize = debounce(function() {
+			// All the taxing stuff you do
+
+			width = window.innerWidth;
+			
+			camera.aspect= width / window.innerHeight ;
+			camera.updateProjectionMatrix();
+
+			renderer.setSize( width, window.innerHeight );
+
+		}, 250);
+
+		window.addEventListener('resize', canvasSize);
+	</script>
+</body>
+</html>

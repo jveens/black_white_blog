@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Creating a Simple Scene with Three.js | Jenny Veens</title>
+  <meta name="description" content="Download the starter files">
+
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://jennyveens.com/javascript/2016/05/17/simple-scene-three-js.html">
+  <link rel="alternate" type="application/rss+xml" title="Jenny Veens" href="http://jennyveens.com/feed.xml">
+
+  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <script src="/assets/javascripts/bootstrap.min.js"></script>
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="container">
+
+  <nav class="navbar-default">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="site-title" href="/">Jenny Veens</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          
+            
+            <li><a class="page-link " href="/about/">About</a></li>
+            
+          
+            
+          
+            
+          
+            
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+  </nav>
+
+  <!--   <a class="site-title" href="/">Jenny Veens</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav> -->
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="container">
+        <!--  -->
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Creating a Simple Scene with Three.js</h1>
+    <p class="post-meta"><time datetime="2016-05-17T00:35:50-04:00" itemprop="datePublished">Posted on: May 17, 2016</time></p>
+    
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p class="text-center download-link">
+<a href="/assets/2016/05/three_js/downloads/part1/part_1_start.html" download="three_js_part1_start.html">Download the starter files</a>
+</p>
+
+<p>Three.js is a super cool library that lets us create 3D objects and scenes in the browser. I’ve been really excited about using it since I started working in web development. My goal here is to go over the basics, so that you can get started with three.js today (And build more cool stuff in the future!).</p>
+
+<h3 id="what-well-be-building">WHAT WE’LL BE BUILDING:</h3>
+<p>We’re going to start out with three.js by building a simple scene. 
+In this scene is going to be a wireframe sphere that spins:</p>
+
+<figure>
+	<canvas id="demo"></canvas>
+	<figcaption><a target="_blank" href="/assets/2016/05/three_js/demos/three_js_simple_scene_demo.html">View fullscreen</a></figcaption>
+</figure>
+
+<p>I’ve split up this tutorial to make it a bit easier to follow:</p>
+
+<ul>
+  <li><strong>Part 1 will be about creating a scene and placing the object in the scene</strong></li>
+  <li><strong>Part 2 will be about styling and animating the scene</strong></li>
+</ul>
+
+<h3 id="lets-get-started">LETS GET STARTED</h3>
+
+<p>To create this scene there are only 4 things we need:</p>
+
+<ol>
+  <li>A Renderer (Canvas element)</li>
+  <li>A Scene</li>
+  <li>A Camera</li>
+  <li>A mesh (Object to view)</li>
+</ol>
+
+<p>I like to think of working in three.js as creating a movie. We need our actors (mesh objects), a camera to film with, and a scene where the action takes place. And then for a viewer to see what we’ve created, they need something to view it with. In real life this could be a television, theatre, or computer, but here we’re going to use an HTML <code class="highlighter-rouge">&lt;canvas&gt;</code> element.</p>
+
+<p>To start, let’s create our markup. We need a regular HTML document, with a canvas element. And we need to include <a href="http://threejs.org">three.js</a>. You can either download the files <a href="http://threejs.org/docs/index.html#Manual/Introduction/Creating_a_scene">here</a>, or include it with a cdn:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"</span><span class="o">&gt;&lt;</span><span class="sr">/script&gt;</span></code></pre></figure>
+
+<p>As of writing this, three.js is in version 76, you can grab the most up to date version <a href="https://cdnjs.com/libraries/three.js/">here</a>.</p>
+
+<p>Markup:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Simple three.js scene<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<p>We’re going to put our JavaScript in the empty script tag. And don’t add in a canvas element quite yet! We’ll be creating it with our JavaScript:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// First let's define the variables we'll need: </span>
+<span class="kd">var</span> <span class="nx">camera</span><span class="p">,</span> <span class="nx">scene</span><span class="p">,</span> <span class="nx">renderer</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span><span class="p">,</span> <span class="nx">mesh</span><span class="p">;</span></code></pre></figure>
+
+<p>In order to initialize our scene, we must first create the things we need, we’ll do this by creating our renderer, camera, scene, and mesh inside of an init() function:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// Create a new Renderer element (this will be our canvas)</span>
+	<span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+
+	<span class="c1">// Then we'll set it so that it takes up the entire viewport</span>
+	<span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span> <span class="p">);</span>
+
+	<span class="c1">// Now let's add our renderer to our document</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span> <span class="p">);</span>	
+<span class="p">}</span></code></pre></figure>
+
+<p>Once our renderer is in place, we can create our scene and camera. The camera accepts 4 arguments:</p>
+
+<ol>
+  <li>The Field of view</li>
+  <li>The aspect ratio
+ Determines how our camera will play on our renderer. Usually this will be the width/height so the image is not squished.</li>
+  <li>Near clipping plane
+ How far away will we start viewing the scene.</li>
+  <li>Far clipping place
+ How far away will we stop viewing the scene.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Inside init();</span>
+<span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+<span class="nx">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span> <span class="mi">75</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1000</span> <span class="p">);</span></code></pre></figure>
+
+<p>Unless we specify it, the postition of our objects will be placed at (0,0,0) - That’s (x,y,z). Let’s position our camera to ensure it’s outside of our object (Very difficult to view our object when our camera is inside!):</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Inside init();</span>
+<span class="c1">// Set the position of the camera to be 800 on the z-axis</span>
+<span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">);</span></code></pre></figure>
+
+<p>Now that our camera is set up, lets add our object.
+An object needs the following:</p>
+
+<ol>
+  <li>Geometry - This tells our object what shape it should take.</li>
+  <li>Material - What our shape should look like.</li>
+  <li>Mesh - This combines our geometry and mesh so we can add it to the scene.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Inside init()</span>
+<span class="nx">geometry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SphereGeometry</span><span class="p">(</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span> <span class="p">);</span>
+<span class="nx">material</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">(</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span> <span class="na">wireframe</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">wireframeLinewidth</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">);</span>
+<span class="nx">mesh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span> <span class="nx">geometry</span><span class="p">,</span> <span class="nx">material</span> <span class="p">);</span>
+
+<span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">mesh</span> <span class="p">);</span></code></pre></figure>
+
+<p>Finally, we need to render the scene:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">renderOnPage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span> <span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span> <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Now that we have our functions in place, we just need to call them.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">init</span><span class="p">();</span>
+<span class="nx">renderOnPage</span><span class="p">();</span></code></pre></figure>
+
+<p>You should see something very similar to what is displayed below:</p>
+
+<figure>
+	<canvas id="part1"></canvas>
+	<figcaption>End result of Part 1</figcaption>
+</figure>
+
+<p>If you don’t see a white sphere on a black background, feel free to <a href="/assets/2016/05/three_js/downloads/part1/part_1_end.html" download="three_js_part1_end.html">download the finished file</a> so you can find out what went wrong.</p>
+
+<p>This might not look like much, but it’s a great start to putting together the pieces of three.js. In the next part, I’ll show you how to style the sphere, and how to make it spin!</p>
+
+<!-- ON TO PART 2 -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"></script>
+
+<script>
+
+	// var camera, scene, ratio, renderer, width;
+	// var geometry, material, mesh;
+
+	var Demo = {};
+
+	Demo.camera;
+	Demo.scene;
+	Demo.renderer;
+	Demo.width;
+	Demo.geometry;
+	Demo.material;
+	Demo.mesh;
+
+	Demo.init = function () {
+
+		var my_canvas = document.getElementById('demo');
+
+		if ( (window.innerWidth - 60) > 680 ) {
+			width = 680;
+		} else {
+			width = window.innerWidth - 60;
+		}
+
+		Demo.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
+		Demo.renderer.setSize( width, window.innerHeight/2 );
+		Demo.renderer.setClearColor( 0x7FFFD4 );
+
+		Demo.camera = new THREE.PerspectiveCamera( 75, width / (window.innerHeight/2), 1, 2000 );
+		Demo.camera.position.z = 800;
+
+		Demo.scene = new THREE.Scene();
+
+		Demo.geometry = new THREE.SphereGeometry( 300, 15, 10 );
+		Demo.material = new THREE.MeshBasicMaterial( { color: 0xDDA0DD, wireframe: true, wireframeLinewidth: 2 } );
+
+		Demo.mesh = new THREE.Mesh( Demo.geometry, Demo.material );
+		
+		Demo.scene.add( Demo.mesh );
+	}
+
+	Demo.animate = function() {
+
+		requestAnimationFrame( Demo.animate );
+
+		Demo.mesh.rotation.x = Date.now() * 0.0002;
+		Demo.mesh.rotation.y = Date.now() * 0.001;
+
+		Demo.renderer.render( Demo.scene, Demo.camera );
+
+	}
+
+	Demo.init();
+	Demo.animate();
+
+	Demo.debounce = function(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	};
+
+	Demo.canvasSize = Demo.debounce(function() {
+		// All the taxing stuff you do
+
+		if ( (window.innerWidth - 60) > 680 ) {
+			width = 680;
+		} else {
+			width = window.innerWidth - 60;
+		}
+
+		
+		camera.aspect= width / ( window.innerHeight/2 ) ;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize( width, window.innerHeight/2 );
+
+	}, 250);
+
+	var Part1 = {};
+
+	Part1.camera;
+	Part1.scene;
+	Part1.renderer;
+	Part1.width;
+	Part1.geometry;
+	Part1.material;
+	Part1.mesh;
+
+
+	Part1.init = function () {
+
+		var my_canvas = document.getElementById('part1');
+
+		if ( (window.innerWidth - 60) > 680 ) {
+			width = 680;
+		} else {
+			width = window.innerWidth - 60;
+		}
+
+		console.log(width);
+
+		Part1.ratio = width / ( window.innerHeight/2 );
+
+		Part1.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
+		Part1.renderer.setSize( width, window.innerHeight/2 );
+		Part1.renderer.setClearColor( 0x000000 );
+
+		Part1.camera = new THREE.PerspectiveCamera( 75, width / (window.innerHeight/2), 1, 2000 );
+		Part1.camera.position.z = 800;
+
+		Part1.scene = new THREE.Scene();
+
+		Part1.geometry = new THREE.SphereGeometry( 300, 15, 10 );
+		Part1.material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+
+		Part1.mesh = new THREE.Mesh( Part1.geometry, Part1.material );
+		
+		Part1.scene.add( Part1.mesh );
+	}
+
+
+
+	Part1.renderOnPage = function () {
+
+		Part1.renderer.render( Part1.scene, Part1.camera );
+
+	}
+
+	Part1.init();
+	Part1.renderOnPage();
+
+	Part1.debounce = function(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	};
+
+	Part1.canvasSize = Part1.debounce(function() {
+		// All the taxing stuff you do
+
+		if ( (window.innerWidth - 60) > 680 ) {
+			width = 680;
+		} else {
+			width = window.innerWidth - 60;
+		}
+
+		
+		Part1.camera.aspect= width / ( window.innerHeight/2 ) ;
+		Part1.camera.updateProjectionMatrix();
+
+		Part1.renderer.setSize( width, window.innerHeight/2 );
+
+	}, 250);
+
+	window.addEventListener('resize', Demo.canvasSize);
+	window.addEventListener('resize', Part1.canvasSize);
+</script>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer text-center">
+
+	<div class="container">
+
+		<div class="col-xs-12">
+
+		<!-- <h2 class="footer-heading">Jenny Veens</h2> -->
+				<ul class="social-media-list ">
+					
+					<li>
+						<a href="mailto:jennyveens@gmail.com">email</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://github.com/jveens">github</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://twitter.com/jennyveens/">twitter</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://codepen.io/jennyveens/">codepen</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="https://ca.linkedin.com/in/jennyveens">linkedin</a>
+					</li>
+					
+				</ul>
+
+				<p class="copyright">Copyright &copy; 2014 - 2016 Jenny Veens. All Rights Reserved.</p>
+
+				</div>
+
+
+
+	</div>
+</footer>
+
+
+  </body>
+
+</html>
