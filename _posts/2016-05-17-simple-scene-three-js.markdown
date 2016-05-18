@@ -3,6 +3,8 @@ layout: post
 title:  "Creating a Simple Scene with Three.js"
 date:   2016-05-17 00:35:50 -0400
 category: Javascript
+comments: false
+disqus_identifier: contain-prove-wireworm
 ---
 
 <p class="text-center download-link">
