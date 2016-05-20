@@ -2,8 +2,8 @@
 layout: post
 title:  "How To: Peekaboo Nav Bar"
 date:   2015-01-25 21:35:50 -0400
-category: Tutorial
-tags: html, css
+category: tutorial
+tags: [html/css]
 ---
 
 *This article originally posted on [Medium](https://medium.com/@jennyveens/how-to-peekaboo-nav-bar-6f795c17b3b7#.b5rn6lkk3)*

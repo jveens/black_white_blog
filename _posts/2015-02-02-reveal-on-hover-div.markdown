@@ -2,8 +2,8 @@
 layout: post
 title:  "How To: Reveal on Hover &lt;div&gt;"
 date:   2015-02-02 21:35:50 -0400
-category: Tutorial
-tags: html, css
+category: tutorial
+tags: [html/css]
 ---
 
 *This article originally posted on [Medium](https://medium.com/@jennyveens/how-to-reveal-on-hover-div-63e18a6158b8#.cxzwryuj0)*
