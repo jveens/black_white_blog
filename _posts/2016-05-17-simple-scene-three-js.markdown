@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "Creating a Simple Scene with Three.js"
+title:  "Creating a scene in three.js"
+tagline: "three.js basics - Part 1"
 date:   2016-05-17 00:35:50 -0400
 category: javascript
 comments: false

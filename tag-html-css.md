@@ -1,6 +1,6 @@
 ---
-layout: tags
+layout: tag
 title: html / css
-permalink: /tags/html-css
+permalink: /tag/html-css
 tag: html/css
 ---
