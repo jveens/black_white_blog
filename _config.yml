@@ -8,8 +8,7 @@
 # Site settings
 title: Jenny Veens
 email: jennyveens@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  New blog for 2016!
+description: Jenny Veens is a Web Developer in Toronto, ON. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://jennyveens.com" # the base hostname & protocol for your site
 # url: "http://localhost:4000"
