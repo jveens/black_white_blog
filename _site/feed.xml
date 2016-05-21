@@ -5,14 +5,14 @@
     <description>Jenny Veens is a Web Developer in Toronto, ON.</description>
     <link>http://jennyveens.com/</link>
     <atom:link href="http://jennyveens.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 20 May 2016 08:23:19 -0400</pubDate>
-    <lastBuildDate>Fri, 20 May 2016 08:23:19 -0400</lastBuildDate>
+    <pubDate>Sat, 21 May 2016 09:40:33 -0400</pubDate>
+    <lastBuildDate>Sat, 21 May 2016 09:40:33 -0400</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
         <title>Creating a scene in three.js</title>
-        <description>&lt;p class=&quot;text-center download-link&quot;&gt;
-&lt;a href=&quot;/assets/2016/05/three_js/downloads/part1/part_1_start.html&quot; download=&quot;three_js_part1_start.html&quot;&gt;Download the starter files&lt;/a&gt;
+        <description>&lt;p class=&quot;download-link&quot;&gt;
+&lt;a href=&quot;/assets/2016/05/three_js/downloads/partOne/part_1_start.html&quot; download=&quot;three_js_part1_start.html&quot;&gt;Download the starter files&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Three.js is a super cool library that lets us create 3D objects and scenes in the browser. I’ve been really excited about using it since I started working in web development. My goal here is to go over the basics, so that you can get started with three.js today (And build more cool stuff in the future!).&lt;/p&gt;
@@ -155,11 +155,11 @@ An object needs the following:&lt;/p&gt;
 	// var geometry, material, mesh;
 
 	var Demo = {};
+	var width;
 
 	Demo.camera;
 	Demo.scene;
 	Demo.renderer;
-	Demo.width;
 	Demo.geometry;
 	Demo.material;
 	Demo.mesh;
@@ -168,10 +168,10 @@ An object needs the following:&lt;/p&gt;
 
 		var my_canvas = document.getElementById(&#39;demo&#39;);
 
-		if ( (window.innerWidth - 60) &gt; 680 ) {
-			width = 680;
+		if ( (window.innerWidth - 120) &gt; 660 ) {
+			width = 660;
 		} else {
-			width = window.innerWidth - 60;
+			width = window.innerWidth - 120;
 		}
 
 		Demo.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
@@ -223,74 +223,65 @@ An object needs the following:&lt;/p&gt;
 	Demo.canvasSize = Demo.debounce(function() {
 		// All the taxing stuff you do
 
-		if ( (window.innerWidth - 60) &gt; 680 ) {
-			width = 680;
+		if ( (window.innerWidth - 120) &gt; 660 ) {
+			width = 660;
 		} else {
-			width = window.innerWidth - 60;
+			width = window.innerWidth - 120;
 		}
 
 		
-		camera.aspect= width / ( window.innerHeight/2 ) ;
-		camera.updateProjectionMatrix();
+		Demo.camera.aspect = width / ( window.innerHeight/2 ) ;
+		Demo.camera.updateProjectionMatrix();
 
-		renderer.setSize( width, window.innerHeight/2 );
+		console.log(&#39;Demo&#39;, Demo.camera.aspect );
+
+		Demo.renderer.setSize( width, window.innerHeight/2 );
 
 	}, 250);
 
-	var Part1 = {};
+	var PartOne = {};
+	var width2;
 
-	Part1.camera;
-	Part1.scene;
-	Part1.renderer;
-	Part1.width;
-	Part1.geometry;
-	Part1.material;
-	Part1.mesh;
+	PartOne.camera;
+	PartOne.scene;
+	PartOne.renderer;
+	PartOne.geometry;
+	PartOne.material;
+	PartOne.mesh;
 
-
-	Part1.init = function () {
+	PartOne.init = function () {
 
 		var my_canvas = document.getElementById(&#39;part1&#39;);
 
-		if ( (window.innerWidth - 60) &gt; 680 ) {
-			width = 680;
+		if ( (window.innerWidth - 120) &gt; 660 ) {
+			width2 = 660;
 		} else {
-			width = window.innerWidth - 60;
+			width2 = window.innerWidth - 120;
 		}
 
-		console.log(width);
+		PartOne.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
+		PartOne.renderer.setSize( width2, window.innerHeight/2 );
+		PartOne.renderer.setClearColor( 0x000000 );
 
-		Part1.ratio = width / ( window.innerHeight/2 );
+		PartOne.camera = new THREE.PerspectiveCamera( 75, width2 / (window.innerHeight/2), 1, 2000 );
+		PartOne.camera.position.z = 800;
 
-		Part1.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
-		Part1.renderer.setSize( width, window.innerHeight/2 );
-		Part1.renderer.setClearColor( 0x000000 );
+		PartOne.scene = new THREE.Scene();
 
-		Part1.camera = new THREE.PerspectiveCamera( 75, width / (window.innerHeight/2), 1, 2000 );
-		Part1.camera.position.z = 800;
+		PartOne.geometry = new THREE.SphereGeometry( 300, 15, 10 );
+		PartOne.material = new THREE.MeshBasicMaterial();
 
-		Part1.scene = new THREE.Scene();
-
-		Part1.geometry = new THREE.SphereGeometry( 300, 15, 10 );
-		Part1.material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
-
-		Part1.mesh = new THREE.Mesh( Part1.geometry, Part1.material );
+		PartOne.mesh = new THREE.Mesh( PartOne.geometry, PartOne.material );
 		
-		Part1.scene.add( Part1.mesh );
+		PartOne.scene.add( PartOne.mesh );
+
+		PartOne.renderer.render( PartOne.scene, PartOne.camera );
 	}
 
+	PartOne.init();
+	// PartOne.animate();
 
-
-	Part1.renderOnPage = function () {
-
-		Part1.renderer.render( Part1.scene, Part1.camera );
-
-	}
-
-	Part1.init();
-	Part1.renderOnPage();
-
-	Part1.debounce = function(func, wait, immediate) {
+	PartOne.debounce = function(func, wait, immediate) {
 		var timeout;
 		return function() {
 			var context = this, args = arguments;
@@ -305,25 +296,27 @@ An object needs the following:&lt;/p&gt;
 		};
 	};
 
-	Part1.canvasSize = Part1.debounce(function() {
+	PartOne.canvasSize = PartOne.debounce(function() {
 		// All the taxing stuff you do
 
-		if ( (window.innerWidth - 60) &gt; 680 ) {
-			width = 680;
+		if ( (window.innerWidth - 120) &gt; 660 ) {
+			width2 = 660;
 		} else {
-			width = window.innerWidth - 60;
+			width2 = window.innerWidth - 120;
 		}
 
-		
-		Part1.camera.aspect= width / ( window.innerHeight/2 ) ;
-		Part1.camera.updateProjectionMatrix();
+		PartOne.camera.aspect = width2 / ( window.innerHeight/2 ) ;
+		PartOne.camera.updateProjectionMatrix();
 
-		Part1.renderer.setSize( width, window.innerHeight/2 );
+		console.log(&#39;PartOne&#39;, PartOne.camera.aspect );
+
+		PartOne.renderer.setSize( width2, window.innerHeight/2 );
+		PartOne.renderer.render( PartOne.scene, PartOne.camera );
 
 	}, 250);
 
+	window.addEventListener(&#39;resize&#39;, PartOne.canvasSize);
 	window.addEventListener(&#39;resize&#39;, Demo.canvasSize);
-	window.addEventListener(&#39;resize&#39;, Part1.canvasSize);
 &lt;/script&gt;
 
 </description>

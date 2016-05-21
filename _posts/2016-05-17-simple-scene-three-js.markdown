@@ -9,8 +9,8 @@ tags: [three.js]
 disqus_identifier: contain-prove-wireworm
 ---
 
-<p class="text-center download-link">
-<a href="/assets/2016/05/three_js/downloads/part1/part_1_start.html" download="three_js_part1_start.html">Download the starter files</a>
+<p class="download-link">
+<a href="/assets/2016/05/three_js/downloads/partOne/part_1_start.html" download="three_js_part1_start.html">Download the starter files</a>
 </p>
 
 Three.js is a super cool library that lets us create 3D objects and scenes in the browser. I’ve been really excited about using it since I started working in web development. My goal here is to go over the basics, so that you can get started with three.js today (And build more cool stuff in the future!). 
@@ -165,11 +165,11 @@ This might not look like much, but it's a great start to putting together the pi
 	// var geometry, material, mesh;
 
 	var Demo = {};
+	var width;
 
 	Demo.camera;
 	Demo.scene;
 	Demo.renderer;
-	Demo.width;
 	Demo.geometry;
 	Demo.material;
 	Demo.mesh;
@@ -178,10 +178,10 @@ This might not look like much, but it's a great start to putting together the pi
 
 		var my_canvas = document.getElementById('demo');
 
-		if ( (window.innerWidth - 60) > 680 ) {
-			width = 680;
+		if ( (window.innerWidth - 120) > 660 ) {
+			width = 660;
 		} else {
-			width = window.innerWidth - 60;
+			width = window.innerWidth - 120;
 		}
 
 		Demo.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
@@ -233,74 +233,65 @@ This might not look like much, but it's a great start to putting together the pi
 	Demo.canvasSize = Demo.debounce(function() {
 		// All the taxing stuff you do
 
-		if ( (window.innerWidth - 60) > 680 ) {
-			width = 680;
+		if ( (window.innerWidth - 120) > 660 ) {
+			width = 660;
 		} else {
-			width = window.innerWidth - 60;
+			width = window.innerWidth - 120;
 		}
 
 		
-		camera.aspect= width / ( window.innerHeight/2 ) ;
-		camera.updateProjectionMatrix();
+		Demo.camera.aspect = width / ( window.innerHeight/2 ) ;
+		Demo.camera.updateProjectionMatrix();
 
-		renderer.setSize( width, window.innerHeight/2 );
+		console.log('Demo', Demo.camera.aspect );
+
+		Demo.renderer.setSize( width, window.innerHeight/2 );
 
 	}, 250);
 
-	var Part1 = {};
+	var PartOne = {};
+	var width2;
 
-	Part1.camera;
-	Part1.scene;
-	Part1.renderer;
-	Part1.width;
-	Part1.geometry;
-	Part1.material;
-	Part1.mesh;
+	PartOne.camera;
+	PartOne.scene;
+	PartOne.renderer;
+	PartOne.geometry;
+	PartOne.material;
+	PartOne.mesh;
 
-
-	Part1.init = function () {
+	PartOne.init = function () {
 
 		var my_canvas = document.getElementById('part1');
 
-		if ( (window.innerWidth - 60) > 680 ) {
-			width = 680;
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
 		} else {
-			width = window.innerWidth - 60;
+			width2 = window.innerWidth - 120;
 		}
 
-		console.log(width);
+		PartOne.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
+		PartOne.renderer.setSize( width2, window.innerHeight/2 );
+		PartOne.renderer.setClearColor( 0x000000 );
 
-		Part1.ratio = width / ( window.innerHeight/2 );
+		PartOne.camera = new THREE.PerspectiveCamera( 75, width2 / (window.innerHeight/2), 1, 2000 );
+		PartOne.camera.position.z = 800;
 
-		Part1.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
-		Part1.renderer.setSize( width, window.innerHeight/2 );
-		Part1.renderer.setClearColor( 0x000000 );
+		PartOne.scene = new THREE.Scene();
 
-		Part1.camera = new THREE.PerspectiveCamera( 75, width / (window.innerHeight/2), 1, 2000 );
-		Part1.camera.position.z = 800;
+		PartOne.geometry = new THREE.SphereGeometry( 300, 15, 10 );
+		PartOne.material = new THREE.MeshBasicMaterial();
 
-		Part1.scene = new THREE.Scene();
-
-		Part1.geometry = new THREE.SphereGeometry( 300, 15, 10 );
-		Part1.material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
-
-		Part1.mesh = new THREE.Mesh( Part1.geometry, Part1.material );
+		PartOne.mesh = new THREE.Mesh( PartOne.geometry, PartOne.material );
 		
-		Part1.scene.add( Part1.mesh );
+		PartOne.scene.add( PartOne.mesh );
+
+		PartOne.renderer.render( PartOne.scene, PartOne.camera );
 	}
 
+	PartOne.init();
+	// PartOne.animate();
 
-
-	Part1.renderOnPage = function () {
-
-		Part1.renderer.render( Part1.scene, Part1.camera );
-
-	}
-
-	Part1.init();
-	Part1.renderOnPage();
-
-	Part1.debounce = function(func, wait, immediate) {
+	PartOne.debounce = function(func, wait, immediate) {
 		var timeout;
 		return function() {
 			var context = this, args = arguments;
@@ -315,25 +306,27 @@ This might not look like much, but it's a great start to putting together the pi
 		};
 	};
 
-	Part1.canvasSize = Part1.debounce(function() {
+	PartOne.canvasSize = PartOne.debounce(function() {
 		// All the taxing stuff you do
 
-		if ( (window.innerWidth - 60) > 680 ) {
-			width = 680;
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
 		} else {
-			width = window.innerWidth - 60;
+			width2 = window.innerWidth - 120;
 		}
 
-		
-		Part1.camera.aspect= width / ( window.innerHeight/2 ) ;
-		Part1.camera.updateProjectionMatrix();
+		PartOne.camera.aspect = width2 / ( window.innerHeight/2 ) ;
+		PartOne.camera.updateProjectionMatrix();
 
-		Part1.renderer.setSize( width, window.innerHeight/2 );
+		console.log('PartOne', PartOne.camera.aspect );
+
+		PartOne.renderer.setSize( width2, window.innerHeight/2 );
+		PartOne.renderer.render( PartOne.scene, PartOne.camera );
 
 	}, 250);
 
+	window.addEventListener('resize', PartOne.canvasSize);
 	window.addEventListener('resize', Demo.canvasSize);
-	window.addEventListener('resize', Part1.canvasSize);
 </script>
 
 

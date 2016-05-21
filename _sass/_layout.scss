@@ -11,8 +11,14 @@
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+    padding: $spacing-unit 0 0;
     min-height: calc(100vh - 230px);
+
+    &.post-layout {
+        background-color: lighten($accent, 4%);
+        background-image: linear-gradient(180deg, rgba($accent, 0.5) 0%, #57f0de 90%);
+        
+    }
 
     a {
         &:focus {
@@ -36,25 +42,39 @@
     font-size: $small-font-size;
     color: $black;
     font-weight: 900;
+    margin-bottom: 30px;
 }
 
 
 
 
-/**a
+/*
  * Posts
  */
+
+ article.post {
+    background-color: $white;
+    max-width: 720px;
+    padding: 0px 30px 60px;
+    min-width: 320px;
+    margin-right: auto;
+
+
+ }
 .post-header {
     margin-bottom: $spacing-unit;
-    margin-top: $spacing-unit;
-    text-align: center;
+    padding-top: $spacing-unit;
+
+    .post-tagline {
+        text-transform: none;
+        font-size: 4vw;
+    }
 
     .tags {
         width: 100%;
         max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
         padding: 0;
+        margin-left: 0;
 
         li {
             display: inline-block;
@@ -90,7 +110,7 @@
 }
 
 .post-title {
-    font-size: 42px;
+    font-size: 6vw;
     letter-spacing: -1px;
     line-height: 1;
     font-weight: 900;
@@ -102,13 +122,9 @@
 }
 
 .post-content {
-    margin-bottom: $spacing-unit;
     width: 100%;
     min-width: 320px;
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
-    margin: 60px auto 30px;
+    margin: 60px auto 30px 0;
 
     a {
         color: $accent;
