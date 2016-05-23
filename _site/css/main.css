@@ -5994,9 +5994,11 @@ pre {
 .page-content {
   padding: 30px 0 0;
   min-height: calc(100vh - 230px); }
-  .page-content.post-layout {
-    background-color: #b9a8ff;
-    background-image: linear-gradient(180deg, rgba(169, 148, 255, 0.5) 0%, #57f0de 90%); }
+  .page-content.post-layout, .page-content.page-layout {
+    background-color: white;
+    background-image: none; }
+  .page-content.default-layout {
+    padding-bottom: 30px; }
   .page-content a:focus {
     outline: 0;
     background-color: black;
@@ -6020,8 +6022,7 @@ pre {
 article.post {
   background-color: #ffffff;
   max-width: 720px;
-  padding: 0px 30px 60px;
-  min-width: 320px;
+  padding: 0px;
   margin-right: auto; }
 
 .post-header {
@@ -6068,7 +6069,6 @@ article.post {
 
 .post-content {
   width: 100%;
-  min-width: 320px;
   margin: 60px auto 30px 0; }
   .post-content a {
     color: #a994ff;
@@ -6116,6 +6116,19 @@ figure {
     margin-top: 5px;
     font-weight: 100; }
 
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+/* Small devices (tablets, 400px and up) */
+@media (min-width: 400px) {
+  article.post {
+    padding: 0px 30px 60px; }
+
+  .page-content.post-layout, .page-content.page-layout {
+    background-color: #b9a8ff;
+    background-image: linear-gradient(180deg, rgba(169, 148, 255, 0.5) 0%, #57f0de 90%); } }
+/* Small devices (tablets, 768px and up) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
 .site-header a:focus,
 .site-footer a:focus {
   outline: 0;

@@ -7,17 +7,23 @@
 
 
 
+
 /**
  * Page content
  */
+
 .page-content {
     padding: $spacing-unit 0 0;
     min-height: calc(100vh - 230px);
 
-    &.post-layout {
-        background-color: lighten($accent, 4%);
-        background-image: linear-gradient(180deg, rgba($accent, 0.5) 0%, #57f0de 90%);
-        
+    &.post-layout,
+    &.page-layout {
+        background-color: white;
+        background-image: none;
+    } 
+
+    &.default-layout {
+        padding-bottom: $spacing-unit;
     }
 
     a {
@@ -55,11 +61,8 @@
  article.post {
     background-color: $white;
     max-width: 720px;
-    padding: 0px 30px 60px;
-    min-width: 320px;
+    padding: 0px;
     margin-right: auto;
-
-
  }
 .post-header {
     margin-bottom: $spacing-unit;
@@ -123,7 +126,6 @@
 
 .post-content {
     width: 100%;
-    min-width: 320px;
     margin: 60px auto 30px 0;
 
     a {
@@ -204,3 +206,34 @@ figure {
 canvas {
     // margin-bottom: 15px;
 }
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 400px and up) */
+@media (min-width: 400px) { 
+    article.post {
+       padding: 0px 30px 60px;
+    }
+
+    .page-content {
+        &.post-layout,
+        &.page-layout {
+            background-color: lighten($accent, 4%);
+            background-image: linear-gradient(180deg, rgba($accent, 0.5) 0%, #57f0de 90%);
+            
+        }
+
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+   
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {  }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }

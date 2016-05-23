@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "Creating a scene in three.js"
-tagline: "three.js basics - Part 1"
+tagline: "Part 1 - three.js basics"
 date:   2016-05-17 00:35:50 -0400
 category: javascript
-comments: false
+comments: true
 tags: [three.js]
 disqus_identifier: contain-prove-wireworm
 ---
@@ -26,8 +26,8 @@ In this scene is going to be a wireframe sphere that spins:
 
 I've split up this tutorial to make it a bit easier to follow:
 
-- <strong>Part 1 will be about creating a scene and placing the object in the scene</strong>
-- <strong>Part 2 will be about styling and animating the scene</strong>
+<strong>- Part 1 will be about creating a scene and placing the object in the scene</strong><br>
+<strong>- Part 2 will be about styling and animating the scene</strong>
 
 ### LETS GET STARTED
 
@@ -151,7 +151,7 @@ You should see something very similar to what is displayed below:
 	<figcaption>End result of Part 1</figcaption>
 </figure>
 
-If you don't see a white sphere on a black background, feel free to <a href="/assets/2016/05/three_js/downloads/part1/part_1_end.html" download="three_js_part1_end.html">download the finished file</a> so you can find out what went wrong. 
+If you don't see a white sphere on a black background, feel free to <a href="/assets/2016/05/three_js/downloads/part1/part_1_end.html" download="three_js_part1_end.html">download the finished file</a> and compare code. 
 
 This might not look like much, but it's a great start to putting together the pieces of three.js. In the next part, I'll show you how to style the sphere, and how to make it spin!
 
@@ -180,6 +180,8 @@ This might not look like much, but it's a great start to putting together the pi
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width = 660;
+		} else if (window.innerWidth <= 400) {
+			width = window.innerWidth - 60;
 		} else {
 			width = window.innerWidth - 120;
 		}
