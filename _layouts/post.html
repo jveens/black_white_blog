@@ -14,9 +14,9 @@ layout: default
     <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">Posted on {{ page.date | date: "%B %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
     {% if page.category %}
     <ul class="tags">
-    	<li><a href="/category/{{ page.category }}">{{ page.category }}</a></li>	
+    	<li><a href="/category/{{ page.category }}.html">{{ page.category }}</a></li>	
       {% for tag in page.tags %}
-        <li><a href="/tag/{{ tag | slugify }}"> {{ tag }} </a></li>
+        <li><a href="/tag/{{ tag | slugify }}.html"> {{ tag }} </a></li>
       {% endfor %}
     </ul>
     {% endif %}
