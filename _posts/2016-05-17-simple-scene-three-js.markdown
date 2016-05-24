@@ -119,7 +119,7 @@ An object needs the following:
 
 1. Geometry - This tells our object what shape it should take.
 2. Material - What our shape should look like.
-3. Mesh - This combines our geometry and mesh so we can add it to the scene. 
+3. Mesh - This combines our geometry and material so we can add it to the scene. 
 
 
 {% highlight javascript %}
