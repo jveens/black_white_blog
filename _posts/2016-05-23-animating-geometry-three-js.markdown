@@ -12,7 +12,7 @@ disqus_identifier: viburnum-sane-niacin
 
 This is Part 2 in getting up and running with three.js. In the last post we created a simple scene with just a white sphere on a black background. In this post we're going to add a simple animation to our sphere. We'll also change it's appearance so we can better see the animation.   
 
-Visit Part 1 if you want to see what we'll be creating or to start from the beginning. If you'd like to pick up where we left off just download the finished Part 1 files below. 
+Visit <a href="/javascript/2016/05/17/simple-scene-three-js.html">Part 1</a> if you want to see what we'll be creating or to start from the beginning. If you'd like to pick up where we left off just download the finished Part 1 files below. 
 
 <p class="download-link">
 <a href="/assets/2016/05/three_js/downloads/part1/part_1_end.html" download="three_js_part1_end.html">Download Part 1 files</a>
@@ -69,11 +69,12 @@ renderer.setClearColor( 0x7FFFD4 );
 	<figcaption>Finished - Our colorful little scene.</figcaption>
 </figure>
 
-Any questions? Let me know below or tweet me! <a href="https://twitter.com/jennyveens">@jennyveens</a>
-
 <p class="download-link">
 <a href="/assets/2016/05/three_js/downloads/part2/part_2_end.html" download="three_js_part2_end.html">Download Part 2 completed</a>
 </p>
+
+Any questions? Let me know below or tweet me! <a href="https://twitter.com/jennyveens">@jennyveens</a>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"></script>
 
