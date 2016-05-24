@@ -5985,7 +5985,7 @@ pre {
 
 .centered-content {
   display: table-cell;
-  text-align: center;
+  text-align: left;
   vertical-align: middle; }
 
 /**
@@ -6069,7 +6069,7 @@ article.post {
 
 .post-content {
   width: 100%;
-  margin: 60px auto 30px 0; }
+  margin: 40px auto 30px 0; }
   .post-content a {
     color: #a994ff;
     font-weight: bold;
@@ -6094,7 +6094,8 @@ article.post {
       .post-content h4 {
         font-size: 18px; } }
   .post-content .download-link {
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+    margin-top: 40px; }
     .post-content .download-link a {
       padding: 10px;
       background-color: #000000;
@@ -6264,6 +6265,8 @@ figure {
   padding: 0 40px;
   text-align: center;
   border: 8px solid #000000; }
+  .post-link:focus .post-meta {
+    color: #ffffff; }
 
 /**
  * Syntax highlighting styles

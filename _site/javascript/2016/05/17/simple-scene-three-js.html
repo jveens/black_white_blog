@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Creating a scene in three.js | Jenny Veens</title>
-  <meta name="description" content="Download the starter files">
+  <meta name="description" content="Three.js is a super cool library that lets us create 3D objects and scenes in the browser. I’ve been really excited about using it since I started working in...">
 
   <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
 
@@ -150,11 +150,11 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p class="download-link">
+    <p>Three.js is a super cool library that lets us create 3D objects and scenes in the browser. I’ve been really excited about using it since I started working in web development. My goal here is to go over the basics, so that you can get started with three.js today (And build more cool stuff in the future!).</p>
+
+<p class="download-link">
 <a href="/assets/2016/05/three_js/downloads/partOne/part_1_start.html" download="three_js_part1_start.html">Download the starter files</a>
 </p>
-
-<p>Three.js is a super cool library that lets us create 3D objects and scenes in the browser. I’ve been really excited about using it since I started working in web development. My goal here is to go over the basics, so that you can get started with three.js today (And build more cool stuff in the future!).</p>
 
 <h3 id="what-well-be-building">WHAT WE’LL BE BUILDING:</h3>
 <p>We’re going to start out with three.js by building a simple scene. 
@@ -212,14 +212,16 @@ In this scene is going to be a wireframe sphere that spins:</p>
 <p>In order to initialize our scene, we must first create the things we need, we’ll do this by creating our renderer, camera, scene, and mesh inside of an init() function:</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-	<span class="c1">// Create a new Renderer element (this will be our canvas)</span>
-	<span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
 
-	<span class="c1">// Then we'll set it so that it takes up the entire viewport</span>
-	<span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span> <span class="p">);</span>
+<span class="c1">// Create a new Renderer element (this will be our canvas)</span>
+<span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
 
-	<span class="c1">// Now let's add our renderer to our document</span>
-	<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span> <span class="p">);</span>	
+<span class="c1">// Then we'll set it so that it takes up the entire viewport</span>
+<span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span> <span class="p">);</span>
+
+<span class="c1">// Now let's add our renderer to our document</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span> <span class="p">);</span>	
+
 <span class="p">}</span></code></pre></figure>
 
 <p>Once our renderer is in place, we can create our scene and camera. The camera accepts 4 arguments:</p>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Animating a three.js Mesh | Jenny Veens</title>
+  <meta name="description" content="This is Part 2 in getting up and running with three.js. In the last post we created a simple scene with just a white sphere on a black background. In this po...">
+
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://jennyveens.com/javascript/2016/05/23/animating-geometry-three-js.html">
+  <link rel="alternate" type="application/rss+xml" title="Jenny Veens" href="http://jennyveens.com/feed.xml">
+
+  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <script src="/assets/javascripts/bootstrap.min.js"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-60846397-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="container">
+
+  <nav class="navbar-default">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="site-title" href="/">Jenny Veens</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          
+            
+              
+              <li><a class="page-link " href="/about/">About</a></li>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+  </nav>
+
+  <!--   <a class="site-title" href="/">Jenny Veens</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/category/javascript">javascript</a>
+          
+        
+          
+          <a class="page-link" href="/category/tutorial">tutorial</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/tag/html-css">html / css</a>
+          
+        
+          
+          <a class="page-link" href="/tag/three-js">three.js</a>
+          
+        
+      </div>
+    </nav> -->
+
+  </div>
+
+</header>
+
+
+    <div class="page-content post-layout">
+      <div class="container">
+        <!--  -->
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Animating a three.js Mesh</h1>
+    
+    	<h2 class="post-tagline">Part 2 - three.js basics</h2>
+    
+    <p class="post-meta"><time datetime="2016-05-23T00:35:50-04:00" itemprop="datePublished">Posted on May 23, 2016</time></p>
+    
+    <ul class="tags">
+    	<li><a href="/category/javascript">javascript</a></li>	
+      
+        <li><a href="/tag/three-js"> three.js </a></li>
+      
+    </ul>
+    
+    
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This is Part 2 in getting up and running with three.js. In the last post we created a simple scene with just a white sphere on a black background. In this post we’re going to add a simple animation to our sphere. We’ll also change it’s appearance so we can better see the animation.</p>
+
+<p>Visit Part 1 if you want to see what we’ll be creating or to start from the beginning. If you’d like to pick up where we left off just download the finished Part 1 files below.</p>
+
+<p class="download-link">
+<a href="/assets/2016/05/three_js/downloads/part1/part_1_end.html" download="three_js_part1_end.html">Download Part 1 files</a>
+</p>
+
+<figure>
+	<canvas id="part1"></canvas>
+	<figcaption>Our starting point - the finished result of Part 1</figcaption>
+</figure>
+
+<p>In this example we’re working with a Basic three.js material. Basic material does not reflect light - that’s why our white sphere just looks like a flat circle. We can still change the color of our material by passing it a color, and give it some depth by setting wireframe to true. These values can either be passed when the material is created, or by calling setValue() on the material and passing it an object:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">	<span class="nx">material</span><span class="p">.</span><span class="nx">setValues</span><span class="p">({</span>
+		<span class="na">color</span><span class="p">:</span> <span class="mh">0xDDA0DD</span><span class="p">,</span> 
+		<span class="na">wireframe</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> 
+		<span class="na">wireframeLinewidth</span><span class="p">:</span> <span class="mi">2</span>
+	<span class="p">});</span></code></pre></figure>
+
+<figure>
+	<canvas id="part2"></canvas>
+	<figcaption>Basic Material with updated color and wireframe values.</figcaption>
+</figure>
+
+<p>To animate the mesh, we’ll use requestAnimationFrame to rotate our mesh on it’s x and y axis. This function will call itself so it plays continuously. At the end of the function we will re-render the scene with the updated values:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">animate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="nx">requestAnimationFrame</span><span class="p">(</span> <span class="nx">animate</span> <span class="p">);</span>
+
+	<span class="nx">mesh</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.0002</span><span class="p">;</span>
+	<span class="nx">mesh</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">;</span>
+
+	<span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span> <span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span> <span class="p">);</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<figure>
+	<canvas id="part3"></canvas>
+	<figcaption>Spin, my little sphere. SPIN!</figcaption>
+</figure>
+
+<p>Finally, update the background color to whatever you like by setting the renderer clear color.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">renderer</span><span class="p">.</span><span class="nx">setClearColor</span><span class="p">(</span> <span class="mh">0x7FFFD4</span> <span class="p">);</span></code></pre></figure>
+
+<figure>
+	<canvas id="part4"></canvas>
+	<figcaption>Finished - Our colorful little scene.</figcaption>
+</figure>
+
+<p>Any questions? Let me know below or tweet me! <a href="https://twitter.com/jennyveens">@jennyveens</a></p>
+
+<p class="download-link">
+<a href="/assets/2016/05/three_js/downloads/part2/part_2_end.html" download="three_js_part2_end.html">Download Part 2 completed</a>
+</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"></script>
+
+<script>
+	var PartOne = {};
+	var width2;
+
+	PartOne.camera;
+	PartOne.scene;
+	PartOne.renderer;
+	PartOne.geometry;
+	PartOne.material;
+	PartOne.mesh;
+
+	console.log(Date.now());
+
+	PartOne.init = function () {
+
+		var my_canvas = document.getElementById('part1');
+
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
+		} else {
+			width2 = window.innerWidth - 120;
+		}
+
+		PartOne.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
+		PartOne.renderer.setSize( width2, window.innerHeight/2 );
+		PartOne.renderer.setClearColor( 0x000000 );
+
+		PartOne.camera = new THREE.PerspectiveCamera( 75, width2 / (window.innerHeight/2), 1, 2000 );
+		PartOne.camera.position.z = 800;
+
+		PartOne.scene = new THREE.Scene();
+
+		PartOne.geometry = new THREE.SphereGeometry( 300, 15, 10 );
+		PartOne.material = new THREE.MeshBasicMaterial();
+
+		PartOne.mesh = new THREE.Mesh( PartOne.geometry, PartOne.material );
+		
+		PartOne.scene.add( PartOne.mesh );
+
+		PartOne.renderer.render( PartOne.scene, PartOne.camera );
+	}
+
+	PartOne.init();
+	// PartOne.animate();
+
+	PartOne.debounce = function(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	};
+
+	PartOne.canvasSize = PartOne.debounce(function() {
+		// All the taxing stuff you do
+
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
+		} else {
+			width2 = window.innerWidth - 120;
+		}
+
+		PartOne.camera.aspect = width2 / ( window.innerHeight/2 ) ;
+		PartOne.camera.updateProjectionMatrix();
+
+		console.log('PartOne', PartOne.camera.aspect );
+
+		PartOne.renderer.setSize( width2, window.innerHeight/2 );
+		PartOne.renderer.render( PartOne.scene, PartOne.camera );
+
+	}, 250);
+
+	var PartTwo = {};
+
+	PartTwo.camera;
+	PartTwo.scene;
+	PartTwo.renderer;
+	PartTwo.geometry;
+	PartTwo.material;
+	PartTwo.mesh;
+
+	PartTwo.init = function () {
+
+		var my_canvas = document.getElementById('part2');
+
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
+		} else {
+			width2 = window.innerWidth - 120;
+		}
+
+		PartTwo.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
+		PartTwo.renderer.setSize( width2, window.innerHeight/2 );
+		PartTwo.renderer.setClearColor( 0x000000 );
+
+		PartTwo.camera = new THREE.PerspectiveCamera( 75, width2 / (window.innerHeight/2), 1, 2000 );
+		PartTwo.camera.position.z = 800;
+
+		PartTwo.scene = new THREE.Scene();
+
+		PartTwo.geometry = new THREE.SphereGeometry( 300, 15, 10 );
+		PartTwo.material = new THREE.MeshBasicMaterial();
+
+		PartTwo.material.setValues({
+			color: 0xDDA0DD, 
+			wireframe: true, 
+			wireframeLinewidth: 2
+		});
+
+		PartTwo.mesh = new THREE.Mesh( PartTwo.geometry, PartTwo.material );
+		
+		PartTwo.scene.add( PartTwo.mesh );
+
+		PartTwo.renderer.render( PartTwo.scene, PartTwo.camera );
+	}
+
+	PartTwo.init();
+	// PartTwo.animate();
+
+	PartTwo.debounce = function(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	};
+
+	PartTwo.canvasSize = PartTwo.debounce(function() {
+		// All the taxing stuff you do
+
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
+		} else {
+			width2 = window.innerWidth - 120;
+		}
+
+		PartTwo.camera.aspect = width2 / ( window.innerHeight/2 ) ;
+		PartTwo.camera.updateProjectionMatrix();
+
+		console.log('PartTwo', PartTwo.camera.aspect );
+
+		PartTwo.renderer.setSize( width2, window.innerHeight/2 );
+		PartTwo.renderer.render( PartTwo.scene, PartTwo.camera );
+
+	}, 250);
+
+	var PartThree = {};
+
+	PartThree.camera;
+	PartThree.scene;
+	PartThree.renderer;
+	PartThree.geometry;
+	PartThree.material;
+	PartThree.mesh;
+
+	PartThree.init = function () {
+
+		var my_canvas = document.getElementById('part3');
+
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
+		} else {
+			width2 = window.innerWidth - 120;
+		}
+
+		PartThree.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
+		PartThree.renderer.setSize( width2, window.innerHeight/2 );
+		PartThree.renderer.setClearColor( 0x000000 );
+
+		PartThree.camera = new THREE.PerspectiveCamera( 75, width2 / (window.innerHeight/2), 1, 2000 );
+		PartThree.camera.position.z = 800;
+
+		PartThree.scene = new THREE.Scene();
+
+		PartThree.geometry = new THREE.SphereGeometry( 300, 15, 10 );
+		PartThree.material = new THREE.MeshBasicMaterial();
+
+		PartThree.material.setValues({
+			color: 0xDDA0DD, 
+			wireframe: true, 
+			wireframeLinewidth: 2
+		});
+
+		PartThree.mesh = new THREE.Mesh( PartThree.geometry, PartThree.material );
+		
+		PartThree.scene.add( PartThree.mesh );
+
+		PartThree.renderer.render( PartThree.scene, PartThree.camera );
+	}
+
+
+	PartThree.animate = function() {
+
+		requestAnimationFrame( PartThree.animate );
+
+		PartThree.mesh.rotation.x = Date.now() * 0.0002;
+		PartThree.mesh.rotation.y = Date.now() * 0.001;
+
+		PartThree.renderer.render( PartThree.scene, PartThree.camera );
+
+	}
+
+	PartThree.init();
+	PartThree.animate();
+
+	PartThree.debounce = function(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	};
+
+	PartThree.canvasSize = PartThree.debounce(function() {
+		// All the taxing stuff you do
+
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
+		} else {
+			width2 = window.innerWidth - 120;
+		}
+
+		PartThree.camera.aspect = width2 / ( window.innerHeight/2 ) ;
+		PartThree.camera.updateProjectionMatrix();
+
+		console.log('PartThree', PartThree.camera.aspect );
+
+		PartThree.renderer.setSize( width2, window.innerHeight/2 );
+		PartThree.renderer.render( PartThree.scene, PartThree.camera );
+
+	}, 250);
+
+	var PartFour = {};
+	var width2;
+
+	PartFour.camera;
+	PartFour.scene;
+	PartFour.renderer;
+	PartFour.geometry;
+	PartFour.material;
+	PartFour.mesh;
+
+	console.log(Date.now());
+
+	PartFour.init = function () {
+
+		var my_canvas = document.getElementById('part4');
+
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
+		} else {
+			width2 = window.innerWidth - 120;
+		}
+
+		PartFour.renderer = new THREE.WebGLRenderer( { canvas: my_canvas } );
+		PartFour.renderer.setSize( width2, window.innerHeight/2 );
+		PartFour.renderer.setClearColor( 0x7FFFD4 );
+
+		PartFour.camera = new THREE.PerspectiveCamera( 75, width2 / (window.innerHeight/2), 1, 2000 );
+		PartFour.camera.position.z = 800;
+
+		PartFour.scene = new THREE.Scene();
+
+		PartFour.geometry = new THREE.SphereGeometry( 300, 15, 10 );
+		PartFour.material = new THREE.MeshBasicMaterial();
+
+		PartFour.material.setValues({
+			color: 0xDDA0DD, 
+			wireframe: true, 
+			wireframeLinewidth: 2
+		});
+
+		PartFour.mesh = new THREE.Mesh( PartFour.geometry, PartFour.material );
+		
+		PartFour.scene.add( PartFour.mesh );
+
+		PartFour.renderer.render( PartFour.scene, PartFour.camera );
+	}
+
+	PartFour.animate = function() {
+
+		requestAnimationFrame( PartFour.animate );
+
+		PartFour.mesh.rotation.x = Date.now() * 0.0002;
+		PartFour.mesh.rotation.y = Date.now() * 0.001;
+
+		PartFour.renderer.render( PartFour.scene, PartFour.camera );
+
+	}
+
+	PartFour.init();
+	PartFour.animate();
+
+	PartFour.debounce = function(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	};
+
+	PartFour.canvasSize = PartFour.debounce(function() {
+		// All the taxing stuff you do
+
+		if ( (window.innerWidth - 120) > 660 ) {
+			width2 = 660;
+		} else {
+			width2 = window.innerWidth - 120;
+		}
+
+		PartFour.camera.aspect = width2 / ( window.innerHeight/2 ) ;
+		PartFour.camera.updateProjectionMatrix();
+
+		console.log('PartFour', PartFour.camera.aspect );
+
+		PartFour.renderer.setSize( width2, window.innerHeight/2 );
+		PartFour.renderer.render( PartFour.scene, PartFour.camera );
+
+	}, 250);
+
+	window.addEventListener('resize', PartThree.canvasSize);
+
+	window.addEventListener('resize', PartTwo.canvasSize);
+
+	window.addEventListener('resize', PartOne.canvasSize);
+
+</script>
+
+
+  </div>
+
+
+
+	<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    
+    var disqus_config = function () {
+        this.page.url = 'http://jennyveens.com/javascript/2016/05/23/animating-geometry-three-js.html';  
+        // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'viburnum-sane-niacin'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//jennyveens.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+</article>
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer text-center">
+
+	<div class="container">
+
+		<div class="col-xs-12">
+
+		<!-- <h2 class="footer-heading">Jenny Veens</h2> -->
+				<ul class="social-media-list ">
+					
+					<li>
+						<a href="mailto:jennyveens@gmail.com">email</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://github.com/jveens">github</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://twitter.com/jennyveens/">twitter</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://codepen.io/jennyveens/">codepen</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="https://ca.linkedin.com/in/jennyveens">linkedin</a>
+					</li>
+					
+				</ul>
+
+				<p class="copyright">Copyright &copy; 2014 - 2016 Jenny Veens. All Rights Reserved.</p>
+
+				</div>
+
+
+
+	</div>
+</footer>
+
+
+  </body>
+
+</html>

@@ -9,11 +9,11 @@ tags: [three.js]
 disqus_identifier: contain-prove-wireworm
 ---
 
+Three.js is a super cool library that lets us create 3D objects and scenes in the browser. I’ve been really excited about using it since I started working in web development. My goal here is to go over the basics, so that you can get started with three.js today (And build more cool stuff in the future!). 
+
 <p class="download-link">
 <a href="/assets/2016/05/three_js/downloads/partOne/part_1_start.html" download="three_js_part1_start.html">Download the starter files</a>
 </p>
-
-Three.js is a super cool library that lets us create 3D objects and scenes in the browser. I’ve been really excited about using it since I started working in web development. My goal here is to go over the basics, so that you can get started with three.js today (And build more cool stuff in the future!). 
 
 ### WHAT WE'LL BE BUILDING:
 We're going to start out with three.js by building a simple scene. 
@@ -77,14 +77,16 @@ In order to initialize our scene, we must first create the things we need, we'll
 
 {% highlight javascript %}
 var init = function() {
-	// Create a new Renderer element (this will be our canvas)
-	renderer = new THREE.WebGLRenderer();
 
-	// Then we'll set it so that it takes up the entire viewport
-	renderer.setSize( window.innerWidth, window.innerHeight );
+// Create a new Renderer element (this will be our canvas)
+renderer = new THREE.WebGLRenderer();
 
-	// Now let's add our renderer to our document
-	document.body.appendChild( renderer.domElement );	
+// Then we'll set it so that it takes up the entire viewport
+renderer.setSize( window.innerWidth, window.innerHeight );
+
+// Now let's add our renderer to our document
+document.body.appendChild( renderer.domElement );	
+
 }
 {% endhighlight %}
 
@@ -159,6 +161,7 @@ This might not look like much, but it's a great start to putting together the pi
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"></script>
+
 <script>
 
 	// var camera, scene, ratio, renderer, width;

@@ -53,4 +53,10 @@
     padding: 0 40px;
     text-align: center;
     border: 8px solid $black;
+
+    &:focus {
+        .post-meta {
+            color: $white;
+        }
+    }
 }
