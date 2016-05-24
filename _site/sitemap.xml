@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <url>
+        <loc>http://jennyveens.com/javascript/2016/05/23/animating-geometry-three-js.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://jennyveens.com/javascript/2016/05/17/simple-scene-three-js.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://jennyveens.com/tutorial/2015/02/02/reveal-on-hover-div.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://jennyveens.com/tutorial/2015/01/25/peek-a-boo-nav.html</loc>
+    </url>
+    
+
+    
+        
+            
+            <url>
+                <loc>http://jennyveens.com/about/</loc>
+            </url>
+            
+        
+    
+        
+            
+            <url>
+                <loc>http://jennyveens.com/category/javascript</loc>
+            </url>
+            
+        
+    
+        
+            
+            <url>
+                <loc>http://jennyveens.com/category/tutorial</loc>
+            </url>
+            
+        
+    
+        
+    
+        
+            
+            <url>
+                <loc>http://jennyveens.com/</loc>
+            </url>
+            
+        
+    
+        
+    
+        
+    
+        
+            
+            <url>
+                <loc>http://jennyveens.com/tag/html-css</loc>
+            </url>
+            
+        
+    
+        
+            
+            <url>
+                <loc>http://jennyveens.com/tag/three-js</loc>
+            </url>
+            
+        
+    
+</urlset>
+
+<!-- http://vvv.tobiassjosten.net/jekyll/jekyll-sitemap-without-plugins/ -->
