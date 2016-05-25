@@ -26,5 +26,3 @@
         {% endif %}
     {% endfor %}
 </urlset>
-
-<!-- http://vvv.tobiassjosten.net/jekyll/jekyll-sitemap-without-plugins/ -->
