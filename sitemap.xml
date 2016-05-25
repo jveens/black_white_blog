@@ -10,7 +10,15 @@
 
     {% for page in site.pages %}
         {% if page.layout != nil %}
-            {% if page.layout != 'feed' %}
+            {% if page.layout == 'tag' %}
+            <url>
+                <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}.html</loc>
+            </url>
+            {% elsif page.layout == 'category' %}
+            <url>
+                <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}.html</loc>
+            </url>
+            {% elsif page.layout != 'feed' %}
             <url>
                 <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
             </url>
