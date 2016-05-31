@@ -97,6 +97,8 @@ Any questions? Let me know below or tweet me! <a href="https://twitter.com/jenny
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
@@ -143,6 +145,8 @@ Any questions? Let me know below or tweet me! <a href="https://twitter.com/jenny
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
@@ -172,6 +176,8 @@ Any questions? Let me know below or tweet me! <a href="https://twitter.com/jenny
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
@@ -224,6 +230,8 @@ Any questions? Let me know below or tweet me! <a href="https://twitter.com/jenny
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
@@ -253,6 +261,8 @@ Any questions? Let me know below or tweet me! <a href="https://twitter.com/jenny
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
@@ -317,6 +327,8 @@ Any questions? Let me know below or tweet me! <a href="https://twitter.com/jenny
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
@@ -349,6 +361,8 @@ Any questions? Let me know below or tweet me! <a href="https://twitter.com/jenny
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
@@ -412,6 +426,8 @@ Any questions? Let me know below or tweet me! <a href="https://twitter.com/jenny
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}

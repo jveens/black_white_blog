@@ -207,7 +207,9 @@ In this scene is going to be a wireframe sphere that spins:</p>
 <span class="nt">&lt;/head&gt;</span>
 <span class="nt">&lt;body&gt;</span>
   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-  <span class="nt">&lt;script&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+  <span class="c1">// Our code will go here</span>
+  <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span></code></pre></figure>
 
@@ -373,9 +375,11 @@ An object needs the following:</p>
 		// All the taxing stuff you do
 
 		if ( (window.innerWidth - 120) > 660 ) {
-			width = 660;
+			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
-			width = window.innerWidth - 120;
+			width2 = window.innerWidth - 120;
 		}
 
 		
@@ -404,6 +408,8 @@ An object needs the following:</p>
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
@@ -450,6 +456,8 @@ An object needs the following:</p>
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}

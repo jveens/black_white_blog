@@ -22,6 +22,10 @@
         background-image: none;
     } 
 
+    &.post-layout {
+        margin-bottom: 40px;
+    }
+
     &.default-layout {
         padding-bottom: $spacing-unit;
     }

@@ -5997,6 +5997,8 @@ pre {
   .page-content.post-layout, .page-content.page-layout {
     background-color: white;
     background-image: none; }
+  .page-content.post-layout {
+    margin-bottom: 40px; }
   .page-content.default-layout {
     padding-bottom: 30px; }
   .page-content a:focus {

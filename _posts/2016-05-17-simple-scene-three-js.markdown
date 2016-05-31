@@ -60,7 +60,9 @@ Markup:
 </head>
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"></script>
-  <script></script>
+  <script>
+  // Our code will go here
+  </script>
 </body>
 </html>
 {% endhighlight %}
@@ -239,9 +241,11 @@ This might not look like much, but it's a great start to putting together the pi
 		// All the taxing stuff you do
 
 		if ( (window.innerWidth - 120) > 660 ) {
-			width = 660;
+			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
-			width = window.innerWidth - 120;
+			width2 = window.innerWidth - 120;
 		}
 
 		
@@ -270,6 +274,8 @@ This might not look like much, but it's a great start to putting together the pi
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
@@ -316,6 +322,8 @@ This might not look like much, but it's a great start to putting together the pi
 
 		if ( (window.innerWidth - 120) > 660 ) {
 			width2 = 660;
+		} else if (window.innerWidth < 400) {
+			width2 = window.innerWidth - 60;
 		} else {
 			width2 = window.innerWidth - 120;
 		}
