@@ -1,7 +1,6 @@
 
 .post-list {
-    .post:last-child,
-    .post:nth-last-of-type(-n+2):not(:nth-child(even)) {
+    .post:last-child {
 
         .post-container {
             margin-bottom: 0;

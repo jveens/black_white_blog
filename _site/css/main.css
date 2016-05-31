@@ -6232,8 +6232,7 @@ figure {
     display: inline-block;
     margin: 5px 10px; }
 
-.post-list .post:last-child .post-container,
-.post-list .post:nth-last-of-type(-n+2):not(:nth-child(even)) .post-container {
+.post-list .post:last-child .post-container {
   margin-bottom: 0; }
 
 .post-container {
