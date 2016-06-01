@@ -1,7 +1,7 @@
 ---
 layout: project
 title:  "Outskirts"
-date:   2015-01-20 21:35:50 -0400
+date:   2016-01-20 21:35:50 -0400
 category: project
 tags: [development, javascript, animation, wordpress]
 ---
@@ -11,16 +11,16 @@ tags: [development, javascript, animation, wordpress]
 </p>
 
 <figure>
-    <img src="{{site.url}}/assets/2016/01/fromtheoutskirt/main.png" alt="The main app view">
+    <img src="{{site.url}}/assets/2016/01/fromtheoutskirts/main.png" alt="The main site view.">
     <figcaption>The initial page of the site is simple, showcasing the Outskirts logo.</figcaption>
 </figure>
 
 <figure>
-    <img src="{{site.url}}/assets/2016/01/fromtheoutskirt/atom.png" alt="The main app view">
+    <img src="{{site.url}}/assets/2016/01/fromtheoutskirts/atom.png" alt="An animated atom.">
     <figcaption>We went back to math class for this atom. Trigonometry played a big role, not only in drawing the ellipses, but also in making the electrons follow their paths.</figcaption>
 </figure>
 
 <figure>
-    <img src="{{site.url}}/assets/2016/01/fromtheoutskirts/nav-bar.png" alt="The main app view">
+    <img src="{{site.url}}/assets/2016/01/fromtheoutskirts/nav-bar.png" alt="A view of the off-canvas navigation.">
     <figcaption>The off-canvas navigation is simple but does not allow you to scroll around the page while it is open.</figcaption>
 </figure>
