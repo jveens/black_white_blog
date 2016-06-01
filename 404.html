@@ -1,0 +1,41 @@
+---
+layout: default
+title: 404
+permaline: /404.html
+---
+
+
+<h1 class="text-center">{{ page.title }}</h1>
+
+<p class="text-center">It seems you've requested content that is no longer here...
+<br>Maybe you were looking for one of these?</p>
+
+<div class="home">
+
+	<div class="row post-list">
+		{% for post in site.posts limit: 4 %}
+			<div class="col-sm-6 col-xs-12 post">
+					<div class="post-container">
+						<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+							<div class="centered-block">
+								<div class="centered-content">
+									<!-- <span class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</span> -->
+									<span class="post-meta">{{ post.categories }}</span>
+
+									<h2>
+										{{ post.title }}
+									</h2>
+								</div>
+							</div>
+						</a>
+					</div>
+			</div >
+		{% endfor %}
+	</div>
+
+<!--   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+ -->
+</div>
+
+
+

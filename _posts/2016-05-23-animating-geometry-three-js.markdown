@@ -5,7 +5,7 @@ tagline: "Part 2 - three.js basics"
 date:   2016-05-23 00:35:50 -0400
 category: tutorial
 comments: true
-tags: [three.js, javascript]
+tags: [three.js, javascript, animation]
 disqus_identifier: viburnum-sane-niacin
 ---
 
