@@ -444,6 +444,8 @@ Any questions? Let me know below or tweet me! <a href="https://twitter.com/jenny
 
 	window.addEventListener('resize', PartThree.canvasSize);
 
+	window.addEventListener('resize', PartFour.canvasSize);
+
 	window.addEventListener('resize', PartTwo.canvasSize);
 
 	window.addEventListener('resize', PartOne.canvasSize);

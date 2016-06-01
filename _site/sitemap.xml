@@ -10,6 +10,10 @@
     </url>
     
     <url>
+        <loc>http://jennyveens.com/project/2015/03/15/flashlight-plugin.html</loc>
+    </url>
+    
+    <url>
         <loc>http://jennyveens.com/project/2015/03/01/hey-bartender.html</loc>
     </url>
     
@@ -34,7 +38,7 @@
         
             
             <url>
-                <loc>http://jennyveens.com/category/javascript.html</loc>
+                <loc>http://jennyveens.com/category/project.html</loc>
             </url>
             
         
@@ -66,7 +70,31 @@
         
             
             <url>
+                <loc>http://jennyveens.com/tag/design.html</loc>
+            </url>
+            
+        
+    
+        
+            
+            <url>
+                <loc>http://jennyveens.com/tag/development.html</loc>
+            </url>
+            
+        
+    
+        
+            
+            <url>
                 <loc>http://jennyveens.com/tag/html-css.html</loc>
+            </url>
+            
+        
+    
+        
+            
+            <url>
+                <loc>http://jennyveens.com/tag/javascript.html</loc>
             </url>
             
         

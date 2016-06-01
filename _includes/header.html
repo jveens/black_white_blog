@@ -19,6 +19,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           {% for my_page in site.pages %}
+            {% if my_page.layout == 'category' and my_page.title == 'projects' %}
+              <li><a class="page-link {% if page.url == my_page.url %}active{% endif %}" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+            {% endif %}
             {% if my_page.layout == 'page' %}
               {% if my_page.title %}
               <li><a class="page-link {% if page.url == my_page.url %}active{% endif %}" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>

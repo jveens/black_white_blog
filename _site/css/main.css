@@ -5997,7 +5997,7 @@ pre {
   .page-content.post-layout, .page-content.page-layout {
     background-color: white;
     background-image: none; }
-  .page-content.post-layout {
+  .page-content #disqus_thread {
     margin-bottom: 40px; }
   .page-content.default-layout {
     padding-bottom: 30px; }
@@ -6100,10 +6100,16 @@ article.post {
     margin-top: 40px; }
     .post-content .download-link a {
       padding: 10px;
-      background-color: #000000;
-      color: #ffffff; }
+      margin-right: 10px;
+      background-color: #ffffff;
+      color: #000000;
+      border: 2px solid #000000;
+      text-transform: uppercase;
+      transition: all 0.2s ease; }
       .post-content .download-link a:hover {
-        background-color: #a994ff; }
+        background-color: #a994ff;
+        color: #ffffff;
+        border-color: #a994ff; }
 
 figure {
   text-align: center;
@@ -6114,7 +6120,8 @@ figure {
   figure img {
     margin: 0 auto; }
   figure figcaption {
-    color: #666;
+    font-style: italic;
+    color: #777;
     font-size: 14px;
     margin-top: 5px;
     font-weight: 100; }
@@ -6126,7 +6133,7 @@ figure {
   article.post {
     padding: 0px 30px 60px; }
 
-  .page-content.post-layout, .page-content.page-layout {
+  .page-content.post-layout, .page-content.page-layout, .page-content.project-layout {
     background-color: #b9a8ff;
     background-image: linear-gradient(180deg, rgba(169, 148, 255, 0.5) 0%, #57f0de 90%); } }
 /* Small devices (tablets, 768px and up) */

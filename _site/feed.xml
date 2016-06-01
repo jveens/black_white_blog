@@ -5,8 +5,8 @@
     <description>Jenny Veens is a Web Developer in Toronto, ON.</description>
     <link>http://jennyveens.com/</link>
     <atom:link href="http://jennyveens.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 31 May 2016 20:44:55 -0400</pubDate>
-    <lastBuildDate>Tue, 31 May 2016 20:44:55 -0400</lastBuildDate>
+    <pubDate>Tue, 31 May 2016 23:01:31 -0400</pubDate>
+    <lastBuildDate>Tue, 31 May 2016 23:01:31 -0400</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
@@ -438,6 +438,8 @@
 
 	window.addEventListener(&#39;resize&#39;, PartThree.canvasSize);
 
+	window.addEventListener(&#39;resize&#39;, PartFour.canvasSize);
+
 	window.addEventListener(&#39;resize&#39;, PartTwo.canvasSize);
 
 	window.addEventListener(&#39;resize&#39;, PartOne.canvasSize);
@@ -793,18 +795,61 @@ An object needs the following:&lt;/p&gt;
       </item>
     
       <item>
-        <title>Hey Bartender</title>
-        <description>&lt;p&gt;‘Hey Bartender’ is a signature drink generator, created to take the guesswork out of providing guests with a suitable cocktail.&lt;/p&gt;
-
-&lt;p&gt;This site uses &lt;a href=&quot;http://addb.absolutdrinks.com/docs/&quot;&gt;Absolute Vodka’s API&lt;/a&gt; to match a base spirit and flavor profile to a list of potential cocktails. One of these cocktails is chosen and served up to the user.&lt;/p&gt;
-
-&lt;p class=&quot;download-link&quot;&gt;
-&lt;a href=&quot;https://jveens.github.io/heybartender&quot;&gt;View the live site&lt;/a&gt;
+        <title>flashlight.js</title>
+        <description>&lt;p class=&quot;download-link&quot;&gt;
+	&lt;a target=&quot;_blank&quot; href=&quot;https://jveens.github.io/flashlight&quot;&gt;View the live site&lt;/a&gt;
+	&lt;a target=&quot;_blank&quot; href=&quot;https://github.com/jveens/flashlight&quot;&gt;Check it out on Github&lt;/a&gt;
 &lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://jennyveens.com/assets/2015/03/heybartender/main.png&quot; alt=&quot;Main Screen of Hey Bartender!&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Flashlight.js is an interactive jquery plugin that lets you turn out the lights on your website!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://jennyveens.com/assets/2015/03/heybartender/drink.png&quot; alt=&quot;A signature drink chosen just for the user&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The plugin adds a light-switch to your page so you can turn down the lights. The options are fully customizable and include an optional gremlin to lurk around your page when the lights are out. Watch out!&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&quot;http://jennyveens.com/assets/2015/03/flashlight/lights-on.png&quot; alt=&quot;The main app view&quot; /&gt;
+    &lt;figcaption&gt;Flashlight.js - Hide &amp;amp; Go Seek for your website.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img src=&quot;http://jennyveens.com/assets/2015/03/flashlight/lights-off.png&quot; alt=&quot;Look out when the lights go out!&quot; /&gt;
+    &lt;figcaption&gt;Look out when the lights go out!&lt;/figcaption&gt;
+&lt;/figure&gt;
+</description>
+        <pubDate>Sun, 15 Mar 2015 21:35:50 -0400</pubDate>
+        <link>http://jennyveens.com/project/2015/03/15/flashlight-plugin.html</link>
+        <guid isPermaLink="true">http://jennyveens.com/project/2015/03/15/flashlight-plugin.html</guid>
+        
+        <category>development</category>
+        
+        <category>javascript</category>
+        
+        
+        <category>project</category>
+        
+      </item>
+    
+      <item>
+        <title>Hey Bartender</title>
+        <description>&lt;p class=&quot;download-link&quot;&gt;
+	&lt;a target=&quot;_blank&quot; href=&quot;https://jveens.github.io/heybartender&quot;&gt;View the live site&lt;/a&gt;
+	&lt;a target=&quot;_blank&quot; href=&quot;https://github.com/jveens/heybartender&quot;&gt;Check it out on Github&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;‘Hey Bartender!’ is a signature drink generator, created to take the guesswork out of providing guests with a suitable and delicious cocktail.&lt;/p&gt;
+
+&lt;p&gt;This site uses &lt;a target=&quot;blank&quot; href=&quot;http://addb.absolutdrinks.com/docs/&quot;&gt;Absolute Vodka’s API&lt;/a&gt; to match a base spirit and flavor profile to a list of potential cocktails. One of these cocktails is chosen and served up to the user.&lt;/p&gt;
+
+&lt;p&gt;Cheers!&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&quot;http://jennyveens.com/assets/2015/03/heybartender/main.png&quot; alt=&quot;The main app view&quot; /&gt;
+    &lt;figcaption&gt;The App welcome screen - no minors allowed.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img src=&quot;http://jennyveens.com/assets/2015/03/heybartender/drink.png&quot; alt=&quot;A cocktail served up by Hey Bartender!&quot; /&gt;
+    &lt;figcaption&gt;Hey Bartender! Get me a drink, please.&lt;/figcaption&gt;
+&lt;/figure&gt;
 </description>
         <pubDate>Sun, 01 Mar 2015 20:35:50 -0500</pubDate>
         <link>http://jennyveens.com/project/2015/03/01/hey-bartender.html</link>
@@ -813,6 +858,8 @@ An object needs the following:&lt;/p&gt;
         <category>design</category>
         
         <category>development</category>
+        
+        <category>javascript</category>
         
         
         <category>project</category>
