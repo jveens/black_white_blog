@@ -12,7 +12,7 @@ disqus_identifier: contain-prove-wireworm
 Three.js is a super cool library that lets us create 3D objects and scenes in the browser. I’ve been really excited about using it since I started working in web development. My goal here is to go over the basics, so that you can get started with three.js today (And build more cool stuff in the future!). 
 
 <p class="download-link">
-<a href="/assets/2016/05/three_js/downloads/partOne/part_1_start.html" download="three_js_part1_start.html">Download the starter files</a>
+<a href="/assets/2016/05/three_js/downloads/part1/part_1_start.html" download="three_js_part1_start.html">Download the starter files</a>
 </p>
 
 ### WHAT WE'LL BE BUILDING:
@@ -27,7 +27,7 @@ In this scene is going to be a wireframe sphere that spins:
 I've split up this tutorial to make it a bit easier to follow:
 
 <strong>- Part 1 will be about creating a scene and placing the object in the scene</strong><br>
-<a href="/javascript/2016/05/23/animating-geometry-three-js.html"><strong>- Part 2 will be about styling and animating the scene</strong></a> 
+<a href="/tutorial/2016/05/23/animating-geometry-three-js.html"><strong>- Part 2 will be about styling and animating the scene</strong></a> 
 
 ### LETS GET STARTED
 
