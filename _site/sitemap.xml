@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>http://jennyveens.com/javascript/2016/05/23/animating-geometry-three-js.html</loc>
+        <loc>http://jennyveens.com/tutorial/2016/05/23/animating-geometry-three-js.html</loc>
     </url>
     
     <url>
-        <loc>http://jennyveens.com/javascript/2016/05/17/simple-scene-three-js.html</loc>
+        <loc>http://jennyveens.com/tutorial/2016/05/17/simple-scene-three-js.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://jennyveens.com/project/2016/03/01/hey-bartender.html</loc>
     </url>
     
     <url>

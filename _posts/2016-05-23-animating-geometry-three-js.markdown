@@ -3,9 +3,9 @@ layout: post
 title:  "Animating a three.js Mesh"
 tagline: "Part 2 - three.js basics"
 date:   2016-05-23 00:35:50 -0400
-category: javascript
+category: tutorial
 comments: true
-tags: [three.js]
+tags: [three.js, javascript]
 disqus_identifier: viburnum-sane-niacin
 ---
 

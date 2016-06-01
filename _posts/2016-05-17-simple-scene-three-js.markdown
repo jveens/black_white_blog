@@ -3,9 +3,9 @@ layout: post
 title:  "Creating a scene with three.js"
 tagline: "Part 1 - three.js basics"
 date:   2016-05-17 00:35:50 -0400
-category: javascript
+category: tutorial
 comments: true
-tags: [three.js]
+tags: [three.js, javascript]
 disqus_identifier: contain-prove-wireworm
 ---
 
