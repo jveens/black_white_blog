@@ -1,7 +1,7 @@
 ---
 layout: project
 title:  "Outskirts"
-date:   2015-03-15 21:35:50 -0400
+date:   2015-01-20 21:35:50 -0400
 category: project
 tags: [development, javascript, animation, wordpress]
 ---
@@ -21,6 +21,6 @@ tags: [development, javascript, animation, wordpress]
 </figure>
 
 <figure>
-    <img src="{{site.url}}/assets/2016/01/fromtheoutskirt/nav-bar.png" alt="The main app view">
+    <img src="{{site.url}}/assets/2016/01/fromtheoutskirts/nav-bar.png" alt="The main app view">
     <figcaption>The off-canvas navigation is simple but does not allow you to scroll around the page while it is open.</figcaption>
 </figure>

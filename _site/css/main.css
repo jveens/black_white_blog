@@ -6035,7 +6035,7 @@ article.post {
     font-size: 4vw; }
   .post-header .tags {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     padding: 0;
     margin-left: 0; }
     .post-header .tags li {
