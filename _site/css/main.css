@@ -6241,9 +6241,6 @@ figure {
     display: inline-block;
     margin: 5px 10px; }
 
-.post-list .post:last-child .post-container {
-  margin-bottom: 0; }
-
 .post-container {
   min-height: 200px;
   height: 200px;
