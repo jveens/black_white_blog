@@ -16,7 +16,7 @@
             </url>
             {% elsif page.layout == 'category' %}
             <url>
-                <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}.html</loc>
+                <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
             </url>
             {% elsif page.layout != 'feed' %}
             <url>
