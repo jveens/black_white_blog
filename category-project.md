@@ -1,6 +1,6 @@
 ---
 layout: category
 title: project
-permalink: /category/project
+url: /category/project.html
 category: project
 ---
