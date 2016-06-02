@@ -140,7 +140,7 @@
       <div class="container">
         <h1 class="text-center extra-large">404</h1>
 
-<p class="text-center">Eep! It seems you've requested content that is no longer here...</p>
+<p class="text-center bold">Eep! It seems you've requested content that is no longer here...</p>
 
 <p class="download-link back-link text-center">
 	<a href="/">Go back home</a>

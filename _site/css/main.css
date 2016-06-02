@@ -5992,6 +5992,9 @@ pre {
   font-size: 150px;
   font-weight: bold; }
 
+.bold {
+  font-weight: bold; }
+
 /**
  * Page content
  */
