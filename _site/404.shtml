@@ -138,10 +138,13 @@
 
     <div class="page-content default-layout">
       <div class="container">
-        <h1 class="text-center">404</h1>
+        <h1 class="text-center extra-large">404</h1>
 
-<p class="text-center">It seems you've requested content that is no longer here...
-<br>Maybe you were looking for one of these?</p>
+<p class="text-center">Eep! It seems you've requested content that is no longer here...</p>
+
+<p class="download-link back-link text-center">
+	<a href="/">Go back home</a>
+</p>
 
 <div class="home">
 
@@ -215,7 +218,10 @@
 					</div>
 			</div >
 		
+
 	</div>
+
+
 
 <!--   <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
  -->

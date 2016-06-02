@@ -5988,6 +5988,10 @@ pre {
   text-align: left;
   vertical-align: middle; }
 
+.extra-large {
+  font-size: 150px;
+  font-weight: bold; }
+
 /**
  * Page content
  */
@@ -6095,21 +6099,29 @@ article.post {
     @media screen and (max-width: 800px) {
       .post-content h4 {
         font-size: 18px; } }
-  .post-content .download-link {
-    margin-bottom: 40px;
-    margin-top: 40px; }
-    .post-content .download-link a {
-      padding: 10px;
-      margin-right: 10px;
-      background-color: #ffffff;
-      color: #000000;
-      border: 2px solid #000000;
-      text-transform: uppercase;
-      transition: all 0.2s ease; }
-      .post-content .download-link a:hover {
-        background-color: #a994ff;
-        color: #ffffff;
-        border-color: #a994ff; }
+
+.download-link {
+  margin-bottom: 40px;
+  margin-top: 40px; }
+  .download-link a {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    text-transform: uppercase;
+    transition: all 0.2s ease; }
+    .download-link a:hover {
+      background-color: #a994ff;
+      color: #ffffff;
+      border-color: #a994ff; }
+  .download-link.back-link a {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold; }
+    .download-link.back-link a:hover {
+      background-color: #a994ff;
+      border-color: #a994ff; }
 
 figure {
   text-align: center;
