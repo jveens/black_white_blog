@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sass loops FTW | Jenny Veens</title>
+  <meta name="description" content="Lately I’ve been working on a project that has a fairly large color pallette. The brand has 9 different colors and the main components for the site need to b...">
+
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://jennyveens.com/tutorial/2016/06/19/sass-loops-and-maps.html">
+  <link rel="alternate" type="application/rss+xml" title="Jenny Veens" href="http://jennyveens.com/feed.xml">
+
+  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <script src="/assets/javascripts/bootstrap.min.js"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-60846397-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="container">
+
+  <nav class="navbar-default">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="site-title" href="/">Jenny Veens</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          
+            
+            
+            
+          
+            
+            
+            
+              
+              <li><a class="page-link " href="/about/">About</a></li>
+              
+            
+          
+            
+              <li><a class="page-link " href="/category-project.html">work</a></li>
+            
+            
+            
+          
+            
+            
+              <li><a class="page-link " href="/category-tutorial.html">learn</a></li>
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+  </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content post-layout">
+      <div class="container">
+        <!--  -->
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Sass loops FTW</h1>
+    
+    <p class="post-meta"><time datetime="2016-06-19T00:00:00-04:00" itemprop="datePublished">Posted on June 19, 2016</time></p>
+    
+    <ul class="tags">
+    	<li><a href="/category-tutorial.html">tutorial</a></li>	
+      
+        <li><a href="/tag/html-css.html"> html/css </a></li>
+      
+        <li><a href="/tag/sass.html"> sass </a></li>
+      
+    </ul>
+    
+    
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Lately I’ve been working on a project that has a fairly large color pallette. The brand has 9 different colors and the main components for the site need to be available in every color.</p>
+
+<p>Recently I was going through the sass files, looking for where I could make improvements, and decided that no, I will not be individually declaring variants for each color class because:</p>
+
+<ol>
+  <li>Too time consuming.</li>
+  <li>NOT AT ALL D.R.Y.</li>
+</ol>
+
+<p>There was a lot of this:</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.btn-primary</span> <span class="p">{</span>
+  <span class="c1">// some styles here
+</span>  <span class="k">&amp;</span><span class="nc">.red</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nv">$red</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nf">darken</span><span class="p">(</span> <span class="nv">$red</span><span class="o">,</span> <span class="m">10%</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">&amp;</span><span class="nc">.blue</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nv">$blue</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nf">darken</span><span class="p">(</span> <span class="nv">$blue</span><span class="o">,</span> <span class="m">10%</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">&amp;</span><span class="nc">.green</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nv">$green</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nf">darken</span><span class="p">(</span> <span class="nv">$green</span><span class="o">,</span> <span class="m">10%</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// and so on ...
+</span><span class="p">}</span></code></pre></figure>
+
+<p class="caption">This might not look too bad, but now imagine 6 more color variants, hover styles, focus styles, active styles... !! Too much!</p>
+
+<p>Since we already had our colors stored as variables, I created another variable of all the colors, as well as their corresponding class name:</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$red</span>  <span class="p">:</span> <span class="mh">#ff0000</span><span class="p">;</span>
+<span class="nv">$blue</span> <span class="p">:</span> <span class="mh">#0000ff</span><span class="p">;</span>
+<span class="nv">$green</span><span class="p">:</span> <span class="mh">#00ff00</span><span class="p">;</span>
+<span class="c1">// for all the colors....
+</span>
+<span class="nv">$colors</span><span class="p">:</span> <span class="p">(</span> <span class="s1">'red'</span><span class="o">,</span> <span class="nv">$red</span> <span class="p">)</span><span class="o">,</span>
+	 <span class="p">(</span> <span class="s1">'blue'</span><span class="o">,</span> <span class="nv">$blue</span> <span class="p">)</span><span class="o">,</span>
+	 <span class="p">(</span> <span class="s1">'green'</span><span class="o">,</span><span class="nv">$green</span> <span class="p">);</span>  <span class="o">//</span> <span class="nt">and</span> <span class="nt">all</span> <span class="nt">the</span> <span class="nt">other</span> <span class="nt">colors</span><span class="nc">...</span></code></pre></figure>
+
+<p>This way the class name was kept together with the color variable and we could easily loop through them:</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.btn-primary</span> <span class="p">{</span>
+  <span class="c1">// base styles here
+</span>
+  <span class="k">@each</span> <span class="nv">$class</span><span class="o">,</span> <span class="nv">$color</span> <span class="n">in</span> <span class="nv">$colors</span> <span class="p">{</span>
+    <span class="k">&amp;</span><span class="nc">.</span><span class="si">#{</span><span class="nv">$class</span><span class="si">}</span> <span class="p">{</span>
+      <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nv">$color</span><span class="p">;</span>
+      <span class="nl">background-color</span><span class="p">:</span> <span class="nf">darken</span><span class="p">(</span> <span class="nv">$color</span><span class="o">,</span> <span class="m">10%</span> <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p class="caption">Sooooo much easier to read AND manage.</p>
+
+<p>Something interesting just happened here. If you’re familiar with Ruby, then you’ve already experienced ‘string interpolation’. Interpolation takes whatever variable you’re using between the hashtag-curly-brackets ( #{ } ) and spits out the value. So in the above example we get the same results as if we wrote out all those class names manually.</p>
+
+<p>That’s it! The code we have to write is reduced, and our files are much more readable now.</p>
+
+<p>Sass Loops FOR THE WIN!</p>
+
+<!-- You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+
+To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+
+Jekyll also offers powerful support for code snippets:
+
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
+ -->
+
+  </div>
+
+
+</article>
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer text-center">
+
+	<div class="container">
+
+		<div class="col-xs-12">
+
+		<!-- <h2 class="footer-heading">Jenny Veens</h2> -->
+				<ul class="social-media-list ">
+					
+					<li>
+						<a href="mailto:jennyveens@gmail.com">email</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://github.com/jveens">github</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://twitter.com/jennyveens/">twitter</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="http://codepen.io/jennyveens/">codepen</a>
+					</li>
+					
+
+					
+					<li>
+						<a target="_blank" href="https://ca.linkedin.com/in/jennyveens">linkedin</a>
+					</li>
+					
+				</ul>
+
+				<p class="copyright">Copyright &copy; 2014 - 2016 Jenny Veens. All Rights Reserved.</p>
+
+				</div>
+
+
+
+	</div>
+</footer>
+
+
+  </body>
+
+</html>
