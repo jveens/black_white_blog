@@ -3,7 +3,7 @@ layout: project
 title:  "Hey Bartender"
 date:   2015-03-01 21:35:50 -0400
 category: project
-tags: [design, development,javascript]
+tags: [APIs, javascript, design, development]
 ---
 
 <p class="download-link">

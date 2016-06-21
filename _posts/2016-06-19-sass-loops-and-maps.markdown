@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Sass loops FTW"
-date:   2016-06-19 00:00:00 -0400
+date:   2016-06-20 00:00:00 -0400
 category: tutorial
-tags: [html/css, sass]
+tags: [sass, html/css]
 comments: true
 disqus_identifier: lasso-group-ache
 ---

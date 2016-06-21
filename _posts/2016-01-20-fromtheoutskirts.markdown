@@ -3,7 +3,7 @@ layout: project
 title:  "Outskirts"
 date:   2016-01-20 21:35:50 -0400
 category: project
-tags: [development, javascript, animation, wordpress]
+tags: [wordpress, development, javascript, animation]
 ---
 
 <p class="download-link">

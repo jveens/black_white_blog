@@ -3,7 +3,7 @@ layout: project
 title:  "flashlight.js"
 date:   2015-03-15 21:35:50 -0400
 category: project
-tags: [development,javascript]
+tags: [jquery ,javascript, development]
 ---
 
 <p class="download-link">
