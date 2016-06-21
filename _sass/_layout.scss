@@ -183,6 +183,10 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    .highlight + p.caption {
+        margin-top: -10px;
+    }
 }
 
 .download-link {
