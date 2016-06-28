@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="679px" height="487px" viewBox="0 0 679 487" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Desktop-HD-Copy" stroke="#FF0707" stroke-width="8">
+            <g id="Group" transform="translate(21.000000, 10.000000)">
+                <path d="M129.5,4 L521.431122,4" id="Line"></path>
+                <path d="M124.5,6.5 L0.659376621,130.340622" id="Line"></path>
+                <path d="M325.5,448.5 L189.5,133.5" id="Line"></path>
+                <path d="M461.5,448.5 L325.5,133.5" id="Line" transform="translate(393.500000, 291.000000) scale(-1, 1) translate(-393.500000, -291.000000) "></path>
+                <path d="M649.5,5.5 L525.659377,129.340622" id="Line" transform="translate(587.500000, 67.500000) scale(-1, 1) translate(-587.500000, -67.500000) "></path>
+                <path d="M5.5,135.5 L325.000397,455.000397" id="Line"></path>
+                <path d="M325.5,133.5 L645.5,453.5" id="Line" transform="translate(485.500000, 293.500000) scale(-1, 1) translate(-485.500000, -293.500000) "></path>
+                <path d="M10.5,131 L640.500793,131" id="Line"></path>
+                <path d="M192.5,127.5 L325.5,8.5" id="Line"></path>
+                <path d="M325.5,127.5 L458.5,8.5" id="Line" transform="translate(392.000000, 68.000000) scale(-1, 1) translate(-392.000000, -68.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
