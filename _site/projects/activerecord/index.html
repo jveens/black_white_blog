@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>ActiveRecord Basics | Jenny Veens</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href='https://fonts.googleapis.com/css?family=Rubik:400,500,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="framework/css/reveal.css">
+		<link rel="stylesheet" href="framework/css/theme/black.css">
+		<link rel="stylesheet" href="framework/css/custom.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<!-- begin editable section -->
+				<section class="center">
+					<h1>ActiveRecord Basics</h1>
+					<h4>RailsGirlsTO Meetup, June 28, 2016</h4>
+					<br>
+					<svg width="340px" height="243px" viewBox="0 0 679 487" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+					        <g id="Desktop-HD-Copy" stroke="#FF0707" stroke-width="8">
+					            <g id="Group" transform="translate(21.000000, 10.000000)">
+					                <path d="M129.5,4 L521.431122,4" id="Line"></path>
+					                <path d="M124.5,6.5 L0.659376621,130.340622" id="Line"></path>
+					                <path d="M325.5,448.5 L189.5,133.5" id="Line"></path>
+					                <path d="M461.5,448.5 L325.5,133.5" id="Line" transform="translate(393.500000, 291.000000) scale(-1, 1) translate(-393.500000, -291.000000) "></path>
+					                <path d="M649.5,5.5 L525.659377,129.340622" id="Line" transform="translate(587.500000, 67.500000) scale(-1, 1) translate(-587.500000, -67.500000) "></path>
+					                <path d="M5.5,135.5 L325.000397,455.000397" id="Line"></path>
+					                <path d="M325.5,133.5 L645.5,453.5" id="Line" transform="translate(485.500000, 293.500000) scale(-1, 1) translate(-485.500000, -293.500000) "></path>
+					                <path d="M10.5,131 L640.500793,131" id="Line"></path>
+					                <path d="M192.5,127.5 L325.5,8.5" id="Line"></path>
+					                <path d="M325.5,127.5 L458.5,8.5" id="Line" transform="translate(392.000000, 68.000000) scale(-1, 1) translate(-392.000000, -68.000000) "></path>
+					            </g>
+					        </g>
+					    </g>
+					</svg>
+					<p>@jennyveens</p>
+
+					<aside class="notes">
+						<h1>Who am I?</h1>
+					</aside>
+				</section>
+
+
+				<!-- each <section> element creates a new slide. -->
+
+				<section class="center">
+					<h1>Why should You care about <span class="red">ActiveRecord?</span></h1>
+
+					<aside class="notes">If you've worked with Rails, you've probably experienced the 'Magic' that comes with Rails. So much can be achieved in just a few lines of code.</aside>
+				</section>
+
+				<section class="center" data-background="./content/images/magic.png" data-background-size="cover">
+					<h1>ActiveRecord is </h1>
+					<span class="fragment"><h1 class="magic">MAGIC</h1></span>
+					<aside class="notes">
+						 As a beginner, when this is questioned, you might get an answer that is something like 'Oh, that's just the Rails magic.' End of discussion. But I must know what the magic is - what is the magic disappears where can I get it back, how can I fix it!?
+					</aside>
+				</section>
+					
+				<section class="center">
+					<h1>ActiveRecord is <span class="red">NOT</span></h1>
+					<h1>MAGIC</h1>
+
+					<aside class="notes">
+						ActiveRecord is just software! It was written by people, so ultimately if we wanted we could crack it open and pick it apart. 
+					</aside>
+				</section>
+					
+
+				<section class="center">
+					<h1>So what is ActiveRecord?</h1>
+					<br>
+					<p class="fragment">Technical Term:</p>
+					<p class="fragment">ActiveRecord is an Object-Relational-Mapping system (ORM). A technique that connects objects in an application with the related tables in a database system.</p>
+				</section>
+
+				<section class="center">
+					<h1>Wait, what?</h1>
+					<br>
+					<p class="fragment">My Terms:</p>
+					<p class="fragment">ActiveRecord is a translator and data commander.</p>
+					<p class="fragment">ActiveRecord gets stuff DONE.</p>
+					<aside class="notes">
+						ActiveRecord can speak to the database in it's complex database language. While we COULD learn to speak to the database directly, it's much nicer to give easy to understand orders with ActiveRecord, and have ActiveRecord translate those commands into something the database can understand and act on. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>What can ActiveRecord do for us?</h1>
+					<br>
+					<ul>
+						<li class="fragment">Migrations</li>
+						<li class="fragment">Validations</li>
+						<li class="fragment">Associations</li>
+						<li class="fragment">CRUD</li>
+						<li class="fragment">Callbacks</li>
+					</ul>
+					<aside class="notes">
+						In this talk, I'm going to briefly cover some of the things ActiveRecord facilitates in our rails applications. 
+						ActiveRecord does a lot, but by the end of this talk you should have a basic understanding of it, and why it's so important in our applications.
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>A word about <span class="red">MODELS</span></h1>
+				</section>
+				<section class="center">
+					<h1>It puts the 'M' in <span class="fragment"><span class="red">M</span>VC!</span></h1>
+
+					<aside class="notes">
+						Models are like the building blocks of our applications. In a blog a model will be a Post or User or Comment. In Twitter they're tweets and in Facebook they're status updates. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<h3>Before we can generate a new model, we have to create an app:</h3>
+					<br>
+					<pre class="fragment"><code>➜ rails new testapp</code></pre>
+					<pre class="fragment"><code>➜ cd testapp</code></pre>
+				</section>
+
+				<section class="center">
+					<pre><code>➜ rails generate model Post</code></pre>
+					<br>
+					<h5 class="fragment">Other ways to get the job done:</h5>
+					<br>
+					<pre class="fragment"><code>➜ rails g model Post</code></pre>
+					<pre class="fragment"><code>➜ rails generate model Post title:string body:text</code></pre>
+
+					<aside class="notes">
+						This command is all it takes for ActiveRecord to run over to our database and create a new model. We'll probably want to configure it a bit more than this, but this is the basic command. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<pre><code>➜  testapp rails generate model Post
+Running via Spring preloader in process 20026
+  invoke  active_record
+  create    db/migrate/20160628011521_create_posts.rb
+  create    app/models/post.rb
+  invoke    test_unit
+  create      test/models/post_test.rb
+  create      test/fixtures/posts.yml</code></pre>
+				</section>
+
+				<!-- <section class="center">
+					<h1>Let's Talk about CRUD Baby!</h1>
+					<h4>This can also be referred to as the 'Object Life Cycle'.</h4>
+					<aside class="notes">
+						CRUD is an acronym for "Create", "Read", "Update", "Destroy"
+						These are the 4 basic ways that we operate or interact with data. ActiveRecord gives us these out of the box.
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>Create</h1>
+					<aside class="notes">
+						Note about Models - what they are, why they are important. 
+					</aside>
+				</section> -->
+
+<!-- 				<section class="center"> -->
+				<section class="center">
+
+					<h1>Migrations</h1>
+					
+					<aside class="notes">
+						From our last command we can see that we have a new file in our migrations folder. 
+					</aside>
+				</section>
+
+				<section class="center">
+						<pre><code>class CreatePosts < ActiveRecord::Migration
+  def change
+    create_table :posts do |t|
+      t.string :title
+      t.text :body
+
+      t.timestamps null: false
+    end
+  end
+end</code></pre>
+				</section>
+
+				<section class="center">
+					<pre><code>➜ rake db:migrate</code></pre>
+
+					<aside class="notes">
+						So, when we run this, ActiveRecord goes to the database and creates this table for us.
+					</aside>
+				</section>
+
+				<section class="center">
+					<pre><code>
+== 20160628012148 CreatePosts: migrating ======================================
+-- create_table(:posts)
+-> 0.0014s
+== 20160628012148 CreatePosts: migrated (0.0015s) =============================
+					</code></pre>
+				</section>
+
+				<section class="center">
+					<h4>Creating new Models isn't all we can do with migration. We can also use migrations to edit or remove existing columns and tables.</h4>
+				</section>
+
+				<section class="center">
+					<pre><code>➜ rails generate migration AddSomethingToPost</code></pre>
+				</section>
+
+				<section>
+					<p>
+					add_column<br>
+					add_index<br>
+					add_timestamps<br>
+					change_column<br>
+					change_table<br>
+					create_table<br>
+					drop_table<br>
+					remove_column<br>
+					remove_index<br>
+					remove_timestamps<br>
+					rename_column<br>
+					rename_index<br>
+					rename_table<br>
+					</p>
+
+					<aside class="notes">
+						This is a list of some available options you can use when using migrations. Just by looking at this list we can tell what each of these is going to do. That's the beauty of ActiveRecord. It allows us to speak to the database in a language that's easy for us to understand. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>Benefits?</h1>
+					<br>
+					<h2 class="fragment">Master List of DB build steps</h2>
+					<br>
+					<h2 class="fragment">Reversible</h2>
+					<p class="fragment">➜ rake db:rollback</p>
+
+					<aside class="notes">
+						Once our app is up and running and we have completed some of the migrations to get our database set up the way we want, it's hardly any trouble to run this list of migrations to set up our production database in the exact same way. 
+
+						Usually, (but sometimes not) migrations are reversible. Did you really mess something up? ROLL IT BACK. 
+						Migrations that can move forwards and backwards use the change method, but we can split this up into an up method and a down method. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>Validations</h1>
+				</section>
+
+				<section class="center">
+					<h1>Why Validate?</h1>
+					<br>
+					<h4 class="fragment">Quality-control our data before it's in our database.</h4>
+					<br>
+					<h4 class="fragment">Front-end validations are good... but validations are better.</h4>
+					<aside class="notes">
+						Validations help us ensure that the data going into our app is the data that is going into our app is of the correct type and format. This is important because if the data is incorrect, our app won't be able to work with it the way we had intended.
+
+						You might think that validation aren't important, because we're already doing front-end validation anyways. If someone is sneaky and finds a way around the front-end validation, we can still stop them from messing with our app by blocking the incorrect data server side. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<h2>Validations are super easy to set up:</h2>
+
+					<pre class="fragment"><code>
+validates :the_model_to_validate, validation: value
+					</code></pre>
+
+					<aside class="notes">Validations happen before an object is saved to the database. It is possible to create an invalid object, but we wouldn't be able to save it.</aside>
+				</section>
+
+				<section class="center">
+					<p>
+						acceptance<br>
+						confirmation<br>
+						exclusion<br>
+						format<br>
+						inclusion<br>
+						length<br>
+						numericality<br>
+						presence<br>
+						absence<br>
+						uniqueness<br>
+					</p>
+					<aside class="notes">
+						This is a list of some of the validations we can do. Just like the migration options, it's easy to tel how many of these validations will work just by looking at the name. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>
+						Let's Try It!
+					</h1>
+
+					<pre class="fragment"><code>
+class Post < ActiveRecord::Base
+
+	validates :title, :length => { in: 4..40 }
+
+end
+					</code></pre>
+
+					<aside class="notes">
+						This is all we need to make sure that before a Post is saved in our Database, ActiveRecord will check that the length of the title is between 4 and 40 characters long. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<pre class="code">
+➜ a = Post.new
+<span class="fragment"> => #&lt;Post id: nil, title: nil, body: nil, created_at: nil, updated_at: nil></span>
+<span class="fragment">➜ a.valid?</span>
+<span class="fragment"><span class="red"> => false</span></span>
+
+<span class="fragment">➜ b = Post.new</span>
+<span class="fragment">➜ b.title = "I'm a title!"</span>
+<span class="fragment"> => "I'm a title!"</span>
+<span class="fragment">➜ b.valid?</span>
+<span class="fragment"><span class="green"> => true</span></span></pre>
+				</section>
+
+				<section class="center">
+					<h1>Error Handling</h1>
+
+					<aside class="notes">
+						If we're going through the trouble to check for these validations, we probably want to let our Users know what happened when something goes wrong. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<pre class="code">
+➜ a = Post.new
+ => #&lt;Post id: nil, title: nil, body: nil, created_at: nil, updated_at: nil>
+➜ a.valid?
+<span class="red"> => false</span>
+
+<span class="fragment">➜ a.errors.full_messages</span>
+<span class="fragment"><span class="red"> => ["Title is too short (minimum is 4 characters)"]</span></span>
+</pre>
+				</section>
+
+				<section class="center">
+					<h1>Custom Error Mesages</h1>
+					<pre class="fragment"><code>
+class Post < ActiveRecord::Base
+
+	validates :title, :length => { in: 4..40, message: "isn't the right length!" }
+
+end</code>
+
+<span class="fragment">➜ a.errors.full_messages</span>
+<span class="fragment"><span class="red"> => ["Title isn't the right length!"]</span></span>
+
+					</pre>
+					<aside class="notes">
+						We probably want to be a little more helpful to our users than this, and tell them what the right length is, but this is just a quick example of how easily we can customize error messages.
+					</aside>
+				</section>
+
+								<section class="center">
+									<h1>Associations</h1>
+
+									<p>Associations let us create relationships between our Models.</p>
+
+									<aside class="notes">
+										The data that we store in our app is important, but for our app to be an app, we need to create relationships between those data sets. Very few, if any, models will be free-standing structures. Data in one model can depend on data in another, so that when one model gets updated, a change happens somewhere else too. 
+									</aside>
+								</section>
+
+								<section class="center">
+									belongs_to<br>
+									has_one<br>
+									has_many<br>
+									has_many :through<br>
+									has_one :through<br>
+									has_and_belongs_to_many<br>
+								</section>
+
+								<section class="center">
+									<pre><code>
+class Post < ActiveRecord::Base
+
+	has_many :comments
+	belongs_to :author
+
+end
+
+class Comment < ActiveRecord::Base
+
+	belongs_to :post
+
+end
+									</code></pre>
+								</section>
+
+
+				<section class="center">
+					<h1>Let's Talk about CRUD Baby!</h1>
+					<h4>This can also be referred to as the 'Object Life Cycle'.</h4>
+					<aside class="notes">
+						Once we have our models set up, we'll want to add rows to those columns.
+
+						CRUD is an acronym for "Create", "Read", "Update", "Destroy"
+						These are the 4 basic ways that we operate or interact with data. ActiveRecord gives us these out of the box.
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>Create</h1>
+
+					<pre class="fragment">
+<span class="fragment">p = Post.new title: "I'm the title", body: "I'm the body text"</span>
+<span class="fragment"> => #&lt;Post id: nil, title: "I'm the title", body: "I'm the body text", created_at: nil, updated_at: nil></span>
+<span class="fragment">p = Post.save</span>
+<span class="fragment">
+(0.2ms)  begin transaction
+  SQL (0.7ms)  INSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "I'm the title"], ["body", "I'm the body text"], ["created_at", "2016-06-28 12:46:59.593867"], ["updated_at", "2016-06-28 12:46:59.593867"]]
+   (1.1ms)  commit transaction
+ => true
+</span>
+
+<span class="fragment">p = Post.create</span>
+					</code></pre>
+					<aside class="notes">
+						Creating a new record is easy. We've already done it while testing out our validations. It's as simple as using the new keyword.
+					</aside>
+				</section>
+
+				
+
+				<section class="center">
+					<h1>Read</h1>
+
+					<aside class="notes">
+						When we Read our data, we pretty much just want ActiveRecord to go and retrieve it for us.
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>Finding our records...</h1>
+					<span class="fragment">Post.all</span><br>
+					<span class="fragment">Post.first</span><br>
+					<span class="fragment">Post.last</span><br>
+					<span class="fragment">Post.find id</span><br>
+					<span class="fragment">Post.find [ array of ids to find ]</span><br>
+					<span class="fragment">Post.find_by_title "string"</span><br>
+					
+					<aside class="notes">
+						At some point, we're going to want to access the records in our database. Lucky for us ActiveRecord give us a few handy ways to do this.
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>Update</h1>
+
+					<pre class="fragment">
+p.update_attributes title: "This is the new title."
+p.update( title: "This is the new title." )
+
+<span class="fragment">(0.1ms)  begin transaction
+  SQL (0.6ms)  UPDATE "posts" SET "title" = ?, "updated_at" = ? 
+  WHERE "posts"."id" = ?  [["title", "This is the new title"], 
+  ["updated_at", "2016-06-28 12:55:44.194719"], ["id", 2]]
+   (1.0ms)  commit transaction
+ => true</span>
+					</pre>
+
+					<aside class="notes">
+						Nothing is set in stone, and our data is really no different. Just think about how life would be if we were never able to go back and change anything, ever. No more updating addresses or emails, and if your favorite color was Green as a kid, you're stuck with it for life.
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>Destroy</h1>
+
+					<pre class="fragment">
+p.destroy
+
+<span class="fragment">(0.1ms)  begin transaction
+  SQL (0.6ms)  UPDATE "posts" SET "title" = ?, "updated_at" = ? 
+  WHERE "posts"."id" = ?  [["title", "This is the new title"], 
+  ["updated_at", "2016-06-28 12:55:44.194719"], ["id", 2]]
+   (1.0ms)  commit transaction
+ => true</span>
+					</pre>
+
+					<aside class="notes">
+						Nothing is set in stone, and our data is really no different. Just think about how life would be if we were never able to go back and change anything, ever. No more updating addresses or emails, and if your favorite color was Green as a kid, you're stuck with it for life.
+					</aside>
+				</section>
+
+				<section class="center">
+					<h1>Callbacks</h1>
+				</section>
+
+				<section>
+					<h2>Object Creation</h2>
+					<br>
+					<span class="fragment">
+					before_validation<br>
+					after_validation<br>
+					before_save<br>
+					around_save<br>
+					before_create<br>
+					around_create<br>
+					after_create<br>
+					after_save<br>
+					after_commit/after_rollback<br>
+					</span>
+
+					<aside class="notes">
+						Callbacks happen around main Object Life Cycle events, and ActiveRecord gives us a really simple way to hook into them. This is just a list of the Object Creation callbacks. 
+					</aside>
+				</section>
+
+				<section class="center">
+					<pre>
+class Post < ActiveRecord::Base
+
+	after_save :do_this_awesome_thing
+
+end</pre>
+					
+				</section>
+
+				<section class="center">
+					<h2>Want to know more?</h2>
+					<p>Check out <span class="red">RailsGuides</span> - http://guides.rubyonrails.org/</p>
+				</section>
+
+				<section class="center">
+					<svg width="340px" height="243px" viewBox="0 0 679 487" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+					        <g id="Desktop-HD-Copy" stroke="#FF0707" stroke-width="8">
+					            <g id="Group" transform="translate(21.000000, 10.000000)">
+					                <path d="M129.5,4 L521.431122,4" id="Line"></path>
+					                <path d="M124.5,6.5 L0.659376621,130.340622" id="Line"></path>
+					                <path d="M325.5,448.5 L189.5,133.5" id="Line"></path>
+					                <path d="M461.5,448.5 L325.5,133.5" id="Line" transform="translate(393.500000, 291.000000) scale(-1, 1) translate(-393.500000, -291.000000) "></path>
+					                <path d="M649.5,5.5 L525.659377,129.340622" id="Line" transform="translate(587.500000, 67.500000) scale(-1, 1) translate(-587.500000, -67.500000) "></path>
+					                <path d="M5.5,135.5 L325.000397,455.000397" id="Line"></path>
+					                <path d="M325.5,133.5 L645.5,453.5" id="Line" transform="translate(485.500000, 293.500000) scale(-1, 1) translate(-485.500000, -293.500000) "></path>
+					                <path d="M10.5,131 L640.500793,131" id="Line"></path>
+					                <path d="M192.5,127.5 L325.5,8.5" id="Line"></path>
+					                <path d="M325.5,127.5 L458.5,8.5" id="Line" transform="translate(392.000000, 68.000000) scale(-1, 1) translate(-392.000000, -68.000000) "></path>
+					            </g>
+					        </g>
+					    </g>
+					</svg>
+				</section>
+
+				<!-- <section>
+					<h1>A slide with some HTML Code</h1>
+					<pre><code>
+
+&lt;!doctype html>
+&lt;head>
+  &lt;title>Ladies Learning Code HTML and CSS&lt;/title>
+  &lt;style>
+    p {
+    color: red;
+    text-decoration: underline;
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;p>This is a paragraph&lt;/p>
+&lt;/body>
+&lt;/html>
+					</code></pre>
+				</section> -->
+
+				<!-- <section data-markdown>
+					# You can write your slides in mardown if you add the `data-markdown` attribute
+
+					- markdown makes it a bit easier to write content for the web
+					- learn more about [markdown syntax](https://daringfireball.net/projects/markdown/syntax)
+
+					## A level 2 header in markdown
+
+					```
+						\\ some code in markdown
+					```
+				</section> -->
+
+				<!-- end editable section -->
+
+			</div>
+
+		</div>
+
+		<script src="framework/lib/js/head.min.js"></script>
+		<script src="framework/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'framework/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'framework/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'framework/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'framework/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'framework/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'framework/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+
+			window.onload = function() {
+			  
+			  var canvas = document.getElementById('canvas');
+			  var c = canvas.getContext('2d');
+			  var particles = {};
+				var particleIndex = 0;
+			  var particleNum = 10;
+			      
+			  canvas.width = window.innerWidth;
+			  canvas.height = window.innerHeight;
+			  
+			  document.body.appendChild(canvas);
+			  
+			  c.fillStyle = 'black';
+			  c.fillRect(0,0,canvas.width,canvas.height);
+			  
+			  function Particle() {
+			    this.x = canvas.width / 2;
+			    this.y = canvas.height / 2;
+			    this.vx = Math.random() * 10 - 5;
+			    this.vy = Math.random() * 10 - 5;
+			    this.gravity = 0;
+			    particleIndex++;
+			    particles[particleIndex] = this;
+			    this.id = particleIndex;
+			    this.life = 0;
+			    this.maxLife = Math.random() * 30 + 50;
+			    this.color = "hsla(" + parseInt(Math.random()*255, 10) + ",100%,50%, 0.2)";
+			  }
+			  
+			  Particle.prototype.draw = function() {
+			    this.x += this.vx;
+			    this.y += this.vy;
+			    
+			    if (Math.random() < 0.1) {
+			      this.vx = Math.random()*10-5;
+			      this.vy = Math.random()*10-5;
+			    }
+			    this.vy += this.gravity;
+			    this.life++;
+			    if (this.life > this.maxLife){
+			      delete particles[this.id];
+			    } 
+			    c.fillStyle = this.color;
+			    c.fillRect(this.x,this.y,10,10);
+			  };
+
+			  var p = new Particle();
+			  
+			  setInterval(function(){
+			    c.globalCompositeOperation = 'destination-over';
+			    c.fillStyle = 'rgba(0,0,0,0.2)';
+			    c.fillRect(0,0,canvas.width,canvas.height);
+			    
+			    for( var i = 0; i < particleNum; i++){
+			      new Particle();
+			    }
+			    
+			    c.globalCompositeOperation = 'xor';
+			    for (var i in particles) {
+			      particles[i].draw();
+			    }
+			  }, 20);
+			  
+			  /*
+			  var posX = 20;
+			  var posY = canvas.height / 2;
+			  var vx = 5;
+			  var vy = -5;
+			  var gravity = 1;
+			  
+			  setInterval(function(){
+			    c.fillStyle = "black";
+			    c.fillRect(0,0,canvas.width,canvas.height);
+			    posX += vx;
+			    posY += vy;
+
+			    
+			    if (posY > 300) {
+			      vy *= -0.6;
+			      vx *= 0.7;
+			      posY = 300;
+			    }
+			    
+			    vy += gravity;
+			    
+			    c.fillStyle = 'white';
+			    c.fillRect(posX,posY,10,10);
+			  }, 30);*/
+			  
+			};
+
+		</script>
+
+	</body>
+</html>
