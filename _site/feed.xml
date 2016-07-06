@@ -5,8 +5,8 @@
     <description>Jenny Veens is a Web Developer in Toronto, ON.</description>
     <link>http://jennyveens.com/</link>
     <atom:link href="http://jennyveens.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 Jul 2016 08:39:35 -0400</pubDate>
-    <lastBuildDate>Wed, 06 Jul 2016 08:39:35 -0400</lastBuildDate>
+    <pubDate>Wed, 06 Jul 2016 08:44:49 -0400</pubDate>
+    <lastBuildDate>Wed, 06 Jul 2016 08:44:49 -0400</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
@@ -14,12 +14,14 @@
         <description>&lt;p&gt;Earlier this week I gave a talk for &lt;a href=&quot;https://twitter.com/RailsGirlsTO&quot; target=&quot;blank&quot;&gt;RailsGirlsTO&lt;/a&gt; on ActiveRecord Basics! &lt;a href=&quot;http://jennyveens.com/projects/activerecord/index.html&quot;&gt;Slides here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://jennyveens.com/projects/activerecord/index.html&quot;&gt;
-  &lt;img src=&quot;http://jennyveens.com/assets/2015/06/activerecord_basics.png&quot; alt=&quot;Title Slide from my ActiveRecord Basics talk&quot; /&gt;
+  &lt;img src=&quot;http://jennyveens.com/assets/2016/06/activerecord_basics.png&quot; alt=&quot;Title Slide from my ActiveRecord Basics talk&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 30 Jun 2016 00:00:00 -0400</pubDate>
         <link>http://jennyveens.com/talk/2016/06/30/railsgirlsto-activerecord-basics.html</link>
         <guid isPermaLink="true">http://jennyveens.com/talk/2016/06/30/railsgirlsto-activerecord-basics.html</guid>
+        
+        <category>talk</category>
         
         <category>ruby</category>
         
