@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://jennyveens.com/project/2017/02/19/pancake-grid.html</loc>
+    </url>
+    
+    <url>
         <loc>http://jennyveens.com/talk/2016/06/30/railsgirlsto-activerecord-basics.html</loc>
     </url>
     
@@ -141,6 +145,14 @@
             
             <url>
                 <loc>http://jennyveens.com/tag/javascript.html</loc>
+            </url>
+            
+        
+    
+        
+            
+            <url>
+                <loc>http://jennyveens.com/tag/sass.html</loc>
             </url>
             
         

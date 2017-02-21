@@ -23,7 +23,7 @@
     &.page-layout {
         background-color: white;
         background-image: none;
-    } 
+    }
 
     #disqus_thread {
         margin-bottom: 40px;
@@ -221,7 +221,7 @@
             }
         }
 
-        
+
     }
 }
 
@@ -229,11 +229,11 @@ figure {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    
+
     pre {
         text-align: left;
     }
-    
+
     img {
         margin: 0 auto;
     }
@@ -255,26 +255,26 @@ canvas {
 /* No media query since this is the default in Bootstrap */
 
 /* Small devices (tablets, 400px and up) */
-@media (min-width: 400px) { 
+@media (min-width: 400px) {
     article.post {
-       padding: 0px 30px 60px;
+       padding: 0px 0px 60px;
     }
 
-    .page-content {
-        &.post-layout,
-        &.page-layout,
-        &.project-layout {
-            background-color: lighten($accent, 4%);
-            background-image: linear-gradient(180deg, rgba($accent, 0.5) 0%, #57f0de 90%);
-            
-        }
-
-    }
+    // .page-content {
+    //     &.post-layout,
+    //     &.page-layout,
+    //     &.project-layout {
+    //         // background-color: lighten($accent, 10%);
+    //         // background-image: linear-gradient(180deg, rgba($accent, 0.5) 0%, #57f0de 90%);
+    //
+    //     }
+    //
+    // }
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-   
+@media (min-width: 768px) {
+
 }
 
 /* Medium devices (desktops, 992px and up) */

@@ -139,6 +139,10 @@
             
             
           
+            
+            
+            
+          
         </ul>
       </div><!-- /.navbar-collapse -->
   </nav>
@@ -161,6 +165,23 @@
 <div class="home">
 
 	<div class="row post-list">
+		
+			<div class="col-sm-6 col-xs-12 post">
+					<div class="post-container">
+						<a class="post-link" href="/project/2017/02/19/pancake-grid.html">
+							<div class="centered-block">
+								<div class="centered-content">
+									<!-- <span class="post-meta">February 19, 2017</span> -->
+									<span class="post-meta">project</span>
+
+									<h2>
+										Pancake - A simple SASS Grid
+									</h2>
+								</div>
+							</div>
+						</a>
+					</div>
+			</div >
 		
 			<div class="col-sm-6 col-xs-12 post">
 					<div class="post-container">
@@ -206,23 +227,6 @@
 
 									<h2>
 										Animating a three.js Mesh
-									</h2>
-								</div>
-							</div>
-						</a>
-					</div>
-			</div >
-		
-			<div class="col-sm-6 col-xs-12 post">
-					<div class="post-container">
-						<a class="post-link" href="/tutorial/2016/05/17/simple-scene-three-js.html">
-							<div class="centered-block">
-								<div class="centered-content">
-									<!-- <span class="post-meta">May 17, 2016</span> -->
-									<span class="post-meta">tutorial</span>
-
-									<h2>
-										Creating a scene with three.js
 									</h2>
 								</div>
 							</div>
@@ -284,7 +288,7 @@
 					
 				</ul>
 
-				<p class="copyright">Copyright &copy; 2014 - 2016 Jenny Veens. All Rights Reserved.</p>
+				<p class="copyright">Copyright &copy; 2014 - 2017 Jenny Veens. All Rights Reserved.</p>
 
 				</div>
 

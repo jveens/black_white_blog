@@ -6157,11 +6157,7 @@ figure {
 /* Small devices (tablets, 400px and up) */
 @media (min-width: 400px) {
   article.post {
-    padding: 0px 30px 60px; }
-
-  .page-content.post-layout, .page-content.page-layout, .page-content.project-layout {
-    background-color: #b9a8ff;
-    background-image: linear-gradient(180deg, rgba(169, 148, 255, 0.5) 0%, #57f0de 90%); } }
+    padding: 0px 0px 60px; } }
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
