@@ -190,7 +190,7 @@
 }
 
 .download-link {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     margin-top: 40px;
 
     a {
@@ -201,6 +201,9 @@
         border: 2px solid $black;
         text-transform: uppercase;
         transition: all 0.2s ease;
+        display: inline-block;
+        min-height: 46px;
+        margin-bottom: 15px;
 
         &:hover {
             background-color: $accent;

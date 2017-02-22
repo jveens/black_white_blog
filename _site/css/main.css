@@ -6115,7 +6115,7 @@ article.post {
     margin-top: -10px; }
 
 .download-link {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   margin-top: 40px; }
   .download-link a {
     padding: 10px;
@@ -6124,7 +6124,10 @@ article.post {
     color: #000000;
     border: 2px solid #000000;
     text-transform: uppercase;
-    transition: all 0.2s ease; }
+    transition: all 0.2s ease;
+    display: inline-block;
+    min-height: 46px;
+    margin-bottom: 15px; }
     .download-link a:hover {
       background-color: #a994ff;
       color: #ffffff;

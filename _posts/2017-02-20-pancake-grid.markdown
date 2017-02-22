@@ -16,5 +16,5 @@ A deliciously simple grid built with Sass. Enjoy it however you want* with as ma
 
 <figure>
     <img src="{{site.url}}/assets/2017/02/pancake.png" alt="Welcome to Pancake">
-    <figcaption>Pancake. The deliciously simple grid.</figcaption>
+    <figcaption>Pancake. A deliciously simple grid.</figcaption>
 </figure>
