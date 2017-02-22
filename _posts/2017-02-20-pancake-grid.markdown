@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Pancake - A simple SASS Grid"
+title:  "Pancake Grid"
 date:   2017-02-20 00:00:00 -0400
 category: project
 tags: [html/css, sass]
